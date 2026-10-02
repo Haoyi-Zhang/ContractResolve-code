@@ -1,0 +1,69 @@
+{
+  "cases": [
+    {
+      "case": "handshake-delete",
+      "variables": 2,
+      "source_clauses": 3,
+      "target_clauses": 2,
+      "status": "sat",
+      "reuse_accepted": false,
+      "source_proof_nodes": 5,
+      "target_search_nodes": 4
+    },
+    {
+      "case": "handshake-irrelevant-add",
+      "variables": 3,
+      "source_clauses": 3,
+      "target_clauses": 4,
+      "status": "unsat",
+      "reuse_accepted": true,
+      "source_proof_nodes": 5,
+      "target_search_nodes": 5
+    },
+    {
+      "case": "handshake-body-replacement",
+      "variables": 2,
+      "source_clauses": 3,
+      "target_clauses": 3,
+      "status": "sat",
+      "reuse_accepted": false,
+      "source_proof_nodes": 5,
+      "target_search_nodes": 4
+    },
+    {
+      "case": "mailbox-chain-delete",
+      "variables": 3,
+      "source_clauses": 4,
+      "target_clauses": 3,
+      "status": "sat",
+      "reuse_accepted": false,
+      "source_proof_nodes": 7,
+      "target_search_nodes": 6
+    },
+    {
+      "case": "enable-and-ready-weaken",
+      "variables": 4,
+      "source_clauses": 5,
+      "target_clauses": 5,
+      "status": "sat",
+      "reuse_accepted": false,
+      "source_proof_nodes": 6,
+      "target_search_nodes": 8
+    },
+    {
+      "case": "next-busy-delete",
+      "variables": 5,
+      "source_clauses": 8,
+      "target_clauses": 7,
+      "status": "sat",
+      "reuse_accepted": false,
+      "source_proof_nodes": 5,
+      "target_search_nodes": 7
+    }
+  ],
+  "cpu_seconds": 0.0012157379999999662,
+  "wall_seconds": 0.0012149090000548313,
+  "peak_rss_kib": 92968,
+  "workers": 1,
+  "maturity": "toy end-to-end checks; not deployed firmware/hardware validation"
+}

@@ -1,0 +1,123 @@
+{
+  "family": "duplicate-unit resolution chain",
+  "definition": "two exact source axioms for each positive unit and one all-negative clause",
+  "support_count_argument": "each of k units independently chooses one of two retained source IDs",
+  "rows": [
+    {
+      "k": 2,
+      "minimal_retained_supports": "4",
+      "source_axioms": 5,
+      "schemas": 2,
+      "circuit_gates": 45,
+      "max_depth": 5,
+      "exhaustive_one_choice_assignments": 4,
+      "selected_one_choice_assignments": 4,
+      "all_x_to_all_y_changed_leaves": 4,
+      "all_x_to_all_y_recomputed_gates": 32
+    },
+    {
+      "k": 4,
+      "minimal_retained_supports": "16",
+      "source_axioms": 9,
+      "schemas": 4,
+      "circuit_gates": 135,
+      "max_depth": 9,
+      "exhaustive_one_choice_assignments": 16,
+      "selected_one_choice_assignments": 16,
+      "all_x_to_all_y_changed_leaves": 8,
+      "all_x_to_all_y_recomputed_gates": 112
+    },
+    {
+      "k": 8,
+      "minimal_retained_supports": "256",
+      "source_axioms": 17,
+      "schemas": 8,
+      "circuit_gates": 459,
+      "max_depth": 17,
+      "exhaustive_one_choice_assignments": 256,
+      "selected_one_choice_assignments": 256,
+      "all_x_to_all_y_changed_leaves": 16,
+      "all_x_to_all_y_recomputed_gates": 416
+    },
+    {
+      "k": 12,
+      "minimal_retained_supports": "4096",
+      "source_axioms": 25,
+      "schemas": 12,
+      "circuit_gates": 975,
+      "max_depth": 25,
+      "exhaustive_one_choice_assignments": 4096,
+      "selected_one_choice_assignments": 4096,
+      "all_x_to_all_y_changed_leaves": 24,
+      "all_x_to_all_y_recomputed_gates": 912
+    },
+    {
+      "k": 16,
+      "minimal_retained_supports": "65536",
+      "source_axioms": 33,
+      "schemas": 16,
+      "circuit_gates": 1683,
+      "max_depth": 33,
+      "exhaustive_one_choice_assignments": 0,
+      "selected_one_choice_assignments": 19,
+      "all_x_to_all_y_changed_leaves": 32,
+      "all_x_to_all_y_recomputed_gates": 1600
+    },
+    {
+      "k": 24,
+      "minimal_retained_supports": "16777216",
+      "source_axioms": 49,
+      "schemas": 24,
+      "circuit_gates": 3675,
+      "max_depth": 49,
+      "exhaustive_one_choice_assignments": 0,
+      "selected_one_choice_assignments": 27,
+      "all_x_to_all_y_changed_leaves": 48,
+      "all_x_to_all_y_recomputed_gates": 3552
+    },
+    {
+      "k": 32,
+      "minimal_retained_supports": "4294967296",
+      "source_axioms": 65,
+      "schemas": 32,
+      "circuit_gates": 6435,
+      "max_depth": 65,
+      "exhaustive_one_choice_assignments": 0,
+      "selected_one_choice_assignments": 35,
+      "all_x_to_all_y_changed_leaves": 64,
+      "all_x_to_all_y_recomputed_gates": 6272
+    },
+    {
+      "k": 48,
+      "minimal_retained_supports": "281474976710656",
+      "source_axioms": 97,
+      "schemas": 48,
+      "circuit_gates": 14259,
+      "max_depth": 97,
+      "exhaustive_one_choice_assignments": 0,
+      "selected_one_choice_assignments": 35,
+      "all_x_to_all_y_changed_leaves": 96,
+      "all_x_to_all_y_recomputed_gates": 14016
+    },
+    {
+      "k": 64,
+      "minimal_retained_supports": "18446744073709551616",
+      "source_axioms": 129,
+      "schemas": 64,
+      "circuit_gates": 25155,
+      "max_depth": 129,
+      "exhaustive_one_choice_assignments": 0,
+      "selected_one_choice_assignments": 35,
+      "all_x_to_all_y_changed_leaves": 128,
+      "all_x_to_all_y_recomputed_gates": 24832
+    }
+  ],
+  "witnesses_rechecked": 4532,
+  "negative_checks": 171,
+  "cpu_seconds": 4.323259785,
+  "wall_seconds": 4.336608919000128,
+  "peak_rss_kib": 112700,
+  "workers": 1,
+  "randomness": "none",
+  "maturity": "general counting argument plus bounded implementation checks"
+}

@@ -1,0 +1,112 @@
+{
+  "case": "handshake-body-replacement",
+  "source_formula": {
+    "rule": [
+      -1,
+      2
+    ],
+    "request": [
+      1
+    ],
+    "bad": [
+      -2
+    ]
+  },
+  "target_formula": {
+    "rule": [
+      -2,
+      -1
+    ],
+    "request": [
+      1
+    ],
+    "bad": [
+      -2
+    ]
+  },
+  "source_answer": {
+    "status": "unsat",
+    "certificate": {
+      "nodes": [
+        {
+          "id": "n0",
+          "kind": "axiom",
+          "source": "request",
+          "clause": [
+            1
+          ]
+        },
+        {
+          "id": "n1",
+          "kind": "axiom",
+          "source": "rule",
+          "clause": [
+            -1,
+            2
+          ]
+        },
+        {
+          "id": "n2",
+          "kind": "axiom",
+          "source": "bad",
+          "clause": [
+            -2
+          ]
+        },
+        {
+          "id": "n3",
+          "kind": "resolve",
+          "left": "n1",
+          "right": "n2",
+          "pivot": 2,
+          "clause": [
+            -1
+          ]
+        },
+        {
+          "id": "n4",
+          "kind": "resolve",
+          "left": "n0",
+          "right": "n3",
+          "pivot": 1,
+          "clause": []
+        }
+      ],
+      "root": "n4"
+    },
+    "search_nodes": 5
+  },
+  "target_answer": {
+    "status": "sat",
+    "model": {
+      "1": true,
+      "2": false
+    },
+    "search_nodes": 4
+  },
+  "reuse_accepted": false,
+  "root_support": [
+    [
+      "bad",
+      [
+        -2
+      ]
+    ],
+    [
+      "request",
+      [
+        1
+      ]
+    ],
+    [
+      "rule",
+      [
+        -1,
+        2
+      ]
+    ]
+  ],
+  "oracle_model_masks": [
+    1
+  ]
+}

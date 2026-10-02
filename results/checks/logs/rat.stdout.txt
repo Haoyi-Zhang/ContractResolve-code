@@ -1,0 +1,33 @@
+{
+  "totals": {
+    "formulas": 512,
+    "candidate_pivot_pairs": 6144,
+    "rat_valid": 5780,
+    "rat_valid_not_entailed": 116,
+    "extensions_checked": 52020,
+    "unsafe_imports": 180,
+    "polarity_safe_extensions": 34680,
+    "polarity_rule_failures": 0
+  },
+  "first_unsafe_import": {
+    "base": [],
+    "candidate": [
+      -1
+    ],
+    "pivot": -1,
+    "addition": [
+      1
+    ],
+    "target_models": [
+      1,
+      3
+    ]
+  },
+  "cpu_seconds": 0.49561384100000005,
+  "wall_seconds": 0.49667318899992097,
+  "peak_rss_kib": 92968,
+  "workers": 1,
+  "randomness": "none",
+  "maturity": "finite-check, not a new RAT theorem",
+  "boundary": "single-clause additions; NOT a general incremental RAT checker"
+}

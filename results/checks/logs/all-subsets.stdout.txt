@@ -1,0 +1,22 @@
+{
+  "dimension": 2,
+  "clause_universe": 9,
+  "selection": "all source formulas and every deletion subset of each source; no sampling",
+  "totals": {
+    "source_formulas": 512,
+    "sat_sources": 95,
+    "unsat_sources": 417,
+    "source_target_pairs": 19683,
+    "target_unsat": 10787,
+    "closed_accept": 10787,
+    "closed_mismatch": 0,
+    "witnesses_rechecked": 10787,
+    "incremental_full_evaluation_matches": 19683
+  },
+  "cpu_seconds": 2.7148364739999997,
+  "wall_seconds": 2.724277425999844,
+  "peak_rss_kib": 93620,
+  "workers": 1,
+  "randomness": "none",
+  "maturity": "complete finite enumeration for the stated source/deletion family"
+}

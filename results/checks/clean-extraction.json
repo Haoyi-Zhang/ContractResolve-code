@@ -1,0 +1,87 @@
+{
+  "success": true,
+  "verified_at_utc": "2026-09-26T05:20:00Z",
+  "verification_basis": "Clean candidate archives built from the repaired scientific tree, before insertion of this record, were extracted into fresh directories. The standalone candidate passed direct unit tests and the documented full reproduction; the project candidate rebuilt the paper and reproduced all 12 inspected PDFium pages pixel-for-pixel. The final archives differ only by inclusion of this record and were structure-checked afterward.",
+  "project_archive": {
+    "filename": "proof-carrying-incremental-sat-firmware-hardware-contracts.zip",
+    "single_root": true,
+    "root_name": "proof-carrying-incremental-sat-firmware-hardware-contracts",
+    "root_entries": [
+      "CURRENT-STATE.md",
+      "artifact",
+      "paper",
+      "research-plan.md"
+    ],
+    "nested_archives": 0,
+    "cache_or_build_scratch_files": 0,
+    "candidate_size_bytes": 1168440
+  },
+  "paper_rebuild": {
+    "command": "cd paper && python3 build.py",
+    "exit_code": 0,
+    "pages": 12,
+    "numbered_sections": 9,
+    "abstract_words": 227,
+    "keywords": 7,
+    "bibtex_entries": 63,
+    "unique_cited_keys": 63,
+    "bibliography_items": 63,
+    "reference_audit_rows": 63,
+    "reference_audit_doi_locators": 60,
+    "reference_audit_official_archive_locators": 3,
+    "nocite_present": false,
+    "overfull_boxes": 0,
+    "undefined_references_or_citations": 0,
+    "fonts_reported": 14,
+    "all_fonts_embedded": true,
+    "observed_wall_seconds": 4.47,
+    "observed_peak_rss_kib": 93612,
+    "pdfium_render_identical_to_inspected_pdf_pages": 12,
+    "poppler_pages_rendered": 12
+  },
+  "standalone_repository_archive": {
+    "filename": "proof-carrying-incremental-sat.zip",
+    "single_root": true,
+    "root_name": "proof-carrying-incremental-sat",
+    "nested_archives": 0,
+    "cache_or_build_scratch_files": 0,
+    "candidate_size_bytes": 716385
+  },
+  "standalone_direct_tests": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "exit_code": 0,
+    "unit_tests": 88,
+    "observed_wall_seconds": 7.28,
+    "observed_peak_rss_kib": 187456
+  },
+  "standalone_reproduction": {
+    "command": "python3 reproduce.py --out <fresh-output>",
+    "exit_code": 0,
+    "max_concurrent_children": 4,
+    "individual_experiment_workers": 1,
+    "child_processes": 14,
+    "all_child_exit_codes_zero": true,
+    "unit_tests": 88,
+    "scientific_files_compared": 26,
+    "result_families": 12,
+    "scientific_results_match": true,
+    "observed_child_cpu_seconds": 58.833046,
+    "observed_runner_wall_seconds": 21.95708173999992,
+    "observed_outer_wall_seconds": 22.57,
+    "observed_outer_peak_rss_kib": 751720
+  },
+  "visual_review": {
+    "pages_rendered": 12,
+    "primary_dpi": 200,
+    "renderers": [
+      "PDFium",
+      "Poppler pdftoppm"
+    ],
+    "clipping_or_overlap_found": false,
+    "broken_glyphs_found": false,
+    "unreadable_figures_or_tables_found": false,
+    "last_page_uses_both_columns": true,
+    "figures_redrawn": 0
+  },
+  "boundary": "Clean extraction, rebuild, reproduction, row-level audit, and visual checks are not independent peer review, a machine-checked general proof, industrial validation, or an acceptance guarantee."
+}

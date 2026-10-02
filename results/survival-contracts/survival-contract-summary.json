@@ -1,0 +1,1066 @@
+{
+  "cases": [
+    {
+      "case": "critical-delete-regression",
+      "variables": 2,
+      "source_clauses": 3,
+      "target_clauses": 2,
+      "target_status": "sat",
+      "retained_source_status": "sat",
+      "single_accept": false,
+      "trace_accept": false,
+      "closed_accept": false,
+      "single_support": [
+        [
+          "bad",
+          [
+            -2
+          ]
+        ],
+        [
+          "request",
+          [
+            1
+          ]
+        ],
+        [
+          "rule",
+          [
+            -1,
+            2
+          ]
+        ]
+      ],
+      "trace_stats": {
+        "mode": "trace",
+        "source_clauses": 3,
+        "admitted_axioms": 3,
+        "clauses": 5,
+        "schemas": 2,
+        "max_depth": 5,
+        "replay_node_limit": 100000,
+        "gates": 43,
+        "edges": 58,
+        "leaf_gates": 3,
+        "and_gates": 10,
+        "or_gates": 30,
+        "closed": false
+      },
+      "closed_stats": {
+        "mode": "closed",
+        "source_clauses": 3,
+        "admitted_axioms": 3,
+        "clauses": 6,
+        "schemas": 4,
+        "max_depth": 6,
+        "replay_node_limit": 100000,
+        "gates": 69,
+        "edges": 111,
+        "leaf_gates": 3,
+        "and_gates": 24,
+        "or_gates": 42,
+        "closed": true
+      },
+      "trace_witness": null,
+      "closed_witness": null,
+      "trace_failure_cut": [
+        "rule"
+      ],
+      "closed_failure_cut": [
+        "rule"
+      ]
+    },
+    {
+      "case": "irrelevant-addition",
+      "variables": 3,
+      "source_clauses": 3,
+      "target_clauses": 4,
+      "target_status": "unsat",
+      "retained_source_status": "unsat",
+      "single_accept": true,
+      "trace_accept": true,
+      "closed_accept": true,
+      "single_support": [
+        [
+          "bad",
+          [
+            -2
+          ]
+        ],
+        [
+          "request",
+          [
+            1
+          ]
+        ],
+        [
+          "rule",
+          [
+            -1,
+            2
+          ]
+        ]
+      ],
+      "trace_stats": {
+        "mode": "trace",
+        "source_clauses": 3,
+        "admitted_axioms": 3,
+        "clauses": 5,
+        "schemas": 2,
+        "max_depth": 5,
+        "replay_node_limit": 100000,
+        "gates": 43,
+        "edges": 58,
+        "leaf_gates": 3,
+        "and_gates": 10,
+        "or_gates": 30,
+        "closed": false
+      },
+      "closed_stats": {
+        "mode": "closed",
+        "source_clauses": 3,
+        "admitted_axioms": 3,
+        "clauses": 6,
+        "schemas": 4,
+        "max_depth": 6,
+        "replay_node_limit": 100000,
+        "gates": 69,
+        "edges": 111,
+        "leaf_gates": 3,
+        "and_gates": 24,
+        "or_gates": 42,
+        "closed": true
+      },
+      "trace_witness": {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "rule",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n0",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n1",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      "closed_witness": {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "rule",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n0",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n1",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      "trace_failure_cut": null,
+      "closed_failure_cut": null
+    },
+    {
+      "case": "same-id-replacement",
+      "variables": 2,
+      "source_clauses": 3,
+      "target_clauses": 3,
+      "target_status": "sat",
+      "retained_source_status": "sat",
+      "single_accept": false,
+      "trace_accept": false,
+      "closed_accept": false,
+      "single_support": [
+        [
+          "bad",
+          [
+            -2
+          ]
+        ],
+        [
+          "request",
+          [
+            1
+          ]
+        ],
+        [
+          "rule",
+          [
+            -1,
+            2
+          ]
+        ]
+      ],
+      "trace_stats": {
+        "mode": "trace",
+        "source_clauses": 3,
+        "admitted_axioms": 3,
+        "clauses": 5,
+        "schemas": 2,
+        "max_depth": 5,
+        "replay_node_limit": 100000,
+        "gates": 43,
+        "edges": 58,
+        "leaf_gates": 3,
+        "and_gates": 10,
+        "or_gates": 30,
+        "closed": false
+      },
+      "closed_stats": {
+        "mode": "closed",
+        "source_clauses": 3,
+        "admitted_axioms": 3,
+        "clauses": 6,
+        "schemas": 4,
+        "max_depth": 6,
+        "replay_node_limit": 100000,
+        "gates": 69,
+        "edges": 111,
+        "leaf_gates": 3,
+        "and_gates": 24,
+        "or_gates": 42,
+        "closed": true
+      },
+      "trace_witness": null,
+      "closed_witness": null,
+      "trace_failure_cut": [
+        "rule"
+      ],
+      "closed_failure_cut": [
+        "rule"
+      ]
+    },
+    {
+      "case": "duplicate-rule-delete",
+      "variables": 2,
+      "source_clauses": 4,
+      "target_clauses": 3,
+      "target_status": "unsat",
+      "retained_source_status": "unsat",
+      "single_accept": false,
+      "trace_accept": true,
+      "closed_accept": true,
+      "single_support": [
+        [
+          "bad",
+          [
+            -2
+          ]
+        ],
+        [
+          "request",
+          [
+            1
+          ]
+        ],
+        [
+          "rule_a",
+          [
+            -1,
+            2
+          ]
+        ]
+      ],
+      "trace_stats": {
+        "mode": "trace",
+        "source_clauses": 4,
+        "admitted_axioms": 4,
+        "clauses": 5,
+        "schemas": 2,
+        "max_depth": 5,
+        "replay_node_limit": 100000,
+        "gates": 44,
+        "edges": 59,
+        "leaf_gates": 4,
+        "and_gates": 10,
+        "or_gates": 30,
+        "closed": false
+      },
+      "closed_stats": {
+        "mode": "closed",
+        "source_clauses": 4,
+        "admitted_axioms": 4,
+        "clauses": 6,
+        "schemas": 4,
+        "max_depth": 6,
+        "replay_node_limit": 100000,
+        "gates": 70,
+        "edges": 112,
+        "leaf_gates": 4,
+        "and_gates": 24,
+        "or_gates": 42,
+        "closed": true
+      },
+      "trace_witness": {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "rule_b",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n0",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n1",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      "closed_witness": {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "rule_b",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n0",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n1",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      "trace_failure_cut": null,
+      "closed_failure_cut": null
+    },
+    {
+      "case": "dual-path-bundle",
+      "variables": 3,
+      "source_clauses": 5,
+      "target_clauses": 3,
+      "target_status": "unsat",
+      "retained_source_status": "unsat",
+      "single_accept": false,
+      "trace_accept": true,
+      "closed_accept": true,
+      "single_support": [
+        [
+          "bad_a",
+          [
+            -2
+          ]
+        ],
+        [
+          "path_a",
+          [
+            -1,
+            2
+          ]
+        ],
+        [
+          "request",
+          [
+            1
+          ]
+        ]
+      ],
+      "trace_stats": {
+        "mode": "trace",
+        "source_clauses": 5,
+        "admitted_axioms": 5,
+        "clauses": 7,
+        "schemas": 3,
+        "max_depth": 7,
+        "replay_node_limit": 100000,
+        "gates": 82,
+        "edges": 117,
+        "leaf_gates": 5,
+        "and_gates": 21,
+        "or_gates": 56,
+        "closed": false
+      },
+      "closed_stats": {
+        "mode": "closed",
+        "source_clauses": 5,
+        "admitted_axioms": 5,
+        "clauses": 9,
+        "schemas": 7,
+        "max_depth": 9,
+        "replay_node_limit": 100000,
+        "gates": 158,
+        "edges": 275,
+        "leaf_gates": 5,
+        "and_gates": 63,
+        "or_gates": 90,
+        "closed": true
+      },
+      "trace_witness": {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "bad_b",
+            "clause": [
+              -3
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "path_b",
+            "clause": [
+              -1,
+              3
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n1",
+            "right": "n0",
+            "pivot": 3,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      "closed_witness": {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "bad_b",
+            "clause": [
+              -3
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "path_b",
+            "clause": [
+              -1,
+              3
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n1",
+            "right": "n0",
+            "pivot": 3,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      "trace_failure_cut": null,
+      "closed_failure_cut": null
+    },
+    {
+      "case": "addition-reestablishes-conflict",
+      "variables": 1,
+      "source_clauses": 2,
+      "target_clauses": 2,
+      "target_status": "unsat",
+      "retained_source_status": "sat",
+      "single_accept": false,
+      "trace_accept": false,
+      "closed_accept": false,
+      "single_support": [
+        [
+          "old_negative",
+          [
+            -1
+          ]
+        ],
+        [
+          "positive",
+          [
+            1
+          ]
+        ]
+      ],
+      "trace_stats": {
+        "mode": "trace",
+        "source_clauses": 2,
+        "admitted_axioms": 2,
+        "clauses": 3,
+        "schemas": 1,
+        "max_depth": 3,
+        "replay_node_limit": 100000,
+        "gates": 17,
+        "edges": 20,
+        "leaf_gates": 2,
+        "and_gates": 3,
+        "or_gates": 12,
+        "closed": false
+      },
+      "closed_stats": {
+        "mode": "closed",
+        "source_clauses": 2,
+        "admitted_axioms": 2,
+        "clauses": 3,
+        "schemas": 1,
+        "max_depth": 3,
+        "replay_node_limit": 100000,
+        "gates": 17,
+        "edges": 20,
+        "leaf_gates": 2,
+        "and_gates": 3,
+        "or_gates": 12,
+        "closed": true
+      },
+      "trace_witness": null,
+      "closed_witness": null,
+      "trace_failure_cut": [
+        "old_negative"
+      ],
+      "closed_failure_cut": [
+        "old_negative"
+      ]
+    },
+    {
+      "case": "multi-stage-duplicate",
+      "variables": 3,
+      "source_clauses": 5,
+      "target_clauses": 4,
+      "target_status": "unsat",
+      "retained_source_status": "unsat",
+      "single_accept": false,
+      "trace_accept": true,
+      "closed_accept": true,
+      "single_support": [
+        [
+          "bad",
+          [
+            -3
+          ]
+        ],
+        [
+          "first_a",
+          [
+            -1,
+            2
+          ]
+        ],
+        [
+          "second",
+          [
+            -2,
+            3
+          ]
+        ],
+        [
+          "start",
+          [
+            1
+          ]
+        ]
+      ],
+      "trace_stats": {
+        "mode": "trace",
+        "source_clauses": 5,
+        "admitted_axioms": 5,
+        "clauses": 7,
+        "schemas": 3,
+        "max_depth": 7,
+        "replay_node_limit": 100000,
+        "gates": 82,
+        "edges": 117,
+        "leaf_gates": 5,
+        "and_gates": 21,
+        "or_gates": 56,
+        "closed": false
+      },
+      "closed_stats": {
+        "mode": "closed",
+        "source_clauses": 5,
+        "admitted_axioms": 5,
+        "clauses": 10,
+        "schemas": 10,
+        "max_depth": 10,
+        "replay_node_limit": 100000,
+        "gates": 215,
+        "edges": 405,
+        "leaf_gates": 5,
+        "and_gates": 100,
+        "or_gates": 110,
+        "closed": true
+      },
+      "trace_witness": {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -3
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "first_b",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "second",
+            "clause": [
+              -2,
+              3
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "axiom",
+            "source": "start",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n0",
+            "pivot": 3,
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n5",
+            "kind": "resolve",
+            "left": "n1",
+            "right": "n4",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n6",
+            "kind": "resolve",
+            "left": "n3",
+            "right": "n5",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n6"
+      },
+      "closed_witness": {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -3
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "first_b",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "second",
+            "clause": [
+              -2,
+              3
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "axiom",
+            "source": "start",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n0",
+            "pivot": 3,
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n5",
+            "kind": "resolve",
+            "left": "n3",
+            "right": "n1",
+            "pivot": 1,
+            "clause": [
+              2
+            ]
+          },
+          {
+            "id": "n6",
+            "kind": "resolve",
+            "left": "n5",
+            "right": "n4",
+            "pivot": 2,
+            "clause": []
+          }
+        ],
+        "root": "n6"
+      },
+      "trace_failure_cut": null,
+      "closed_failure_cut": null
+    },
+    {
+      "case": "composed-alternative-leaves",
+      "variables": 2,
+      "source_clauses": 5,
+      "target_clauses": 3,
+      "target_status": "unsat",
+      "retained_source_status": "unsat",
+      "single_accept": false,
+      "trace_accept": true,
+      "closed_accept": true,
+      "single_support": [
+        [
+          "bad_a",
+          [
+            -2
+          ]
+        ],
+        [
+          "bridge",
+          [
+            -1,
+            2
+          ]
+        ],
+        [
+          "start_a",
+          [
+            1
+          ]
+        ]
+      ],
+      "trace_stats": {
+        "mode": "trace",
+        "source_clauses": 5,
+        "admitted_axioms": 5,
+        "clauses": 5,
+        "schemas": 2,
+        "max_depth": 5,
+        "replay_node_limit": 100000,
+        "gates": 45,
+        "edges": 60,
+        "leaf_gates": 5,
+        "and_gates": 10,
+        "or_gates": 30,
+        "closed": false
+      },
+      "closed_stats": {
+        "mode": "closed",
+        "source_clauses": 5,
+        "admitted_axioms": 5,
+        "clauses": 6,
+        "schemas": 4,
+        "max_depth": 6,
+        "replay_node_limit": 100000,
+        "gates": 71,
+        "edges": 113,
+        "leaf_gates": 5,
+        "and_gates": 24,
+        "or_gates": 42,
+        "closed": true
+      },
+      "trace_witness": {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "bad_b",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bridge",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "start_b",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n1",
+            "right": "n0",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      "closed_witness": {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "bad_b",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bridge",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "start_b",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n1",
+            "right": "n0",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      "trace_failure_cut": null,
+      "closed_failure_cut": null
+    }
+  ],
+  "counts": {
+    "total": 8,
+    "target_unsat": 6,
+    "single_accept": 1,
+    "trace_accept": 5,
+    "closed_accept": 5,
+    "trace_repairs_over_single": 4,
+    "closed_repairs_over_trace": 0
+  },
+  "cpu_seconds": 0.006057116000000029,
+  "wall_seconds": 0.006057141000155752,
+  "peak_rss_kib": 93236,
+  "workers": 1,
+  "maturity": "hand-written Boolean contract cases; not RTL or device validation"
+}

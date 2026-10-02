@@ -1,0 +1,157 @@
+{
+  "case": "next-busy-delete",
+  "source_formula": {
+    "t_busy": [
+      -4,
+      1
+    ],
+    "t_not_ack": [
+      -4,
+      -2
+    ],
+    "busy_not_ack_t": [
+      -1,
+      2,
+      4
+    ],
+    "req_next": [
+      -3,
+      5
+    ],
+    "t_next": [
+      -4,
+      5
+    ],
+    "next_req_t": [
+      -5,
+      3,
+      4
+    ],
+    "request": [
+      3
+    ],
+    "bad": [
+      -5
+    ]
+  },
+  "target_formula": {
+    "t_busy": [
+      -4,
+      1
+    ],
+    "t_not_ack": [
+      -4,
+      -2
+    ],
+    "busy_not_ack_t": [
+      -1,
+      2,
+      4
+    ],
+    "t_next": [
+      -4,
+      5
+    ],
+    "next_req_t": [
+      -5,
+      3,
+      4
+    ],
+    "request": [
+      3
+    ],
+    "bad": [
+      -5
+    ]
+  },
+  "source_answer": {
+    "status": "unsat",
+    "certificate": {
+      "nodes": [
+        {
+          "id": "n0",
+          "kind": "axiom",
+          "source": "request",
+          "clause": [
+            3
+          ]
+        },
+        {
+          "id": "n1",
+          "kind": "axiom",
+          "source": "req_next",
+          "clause": [
+            -3,
+            5
+          ]
+        },
+        {
+          "id": "n2",
+          "kind": "axiom",
+          "source": "bad",
+          "clause": [
+            -5
+          ]
+        },
+        {
+          "id": "n3",
+          "kind": "resolve",
+          "left": "n1",
+          "right": "n2",
+          "pivot": 5,
+          "clause": [
+            -3
+          ]
+        },
+        {
+          "id": "n4",
+          "kind": "resolve",
+          "left": "n0",
+          "right": "n3",
+          "pivot": 3,
+          "clause": []
+        }
+      ],
+      "root": "n4"
+    },
+    "search_nodes": 8
+  },
+  "target_answer": {
+    "status": "sat",
+    "model": {
+      "1": false,
+      "2": false,
+      "3": true,
+      "4": false,
+      "5": false
+    },
+    "search_nodes": 7
+  },
+  "reuse_accepted": false,
+  "root_support": [
+    [
+      "bad",
+      [
+        -5
+      ]
+    ],
+    [
+      "req_next",
+      [
+        -3,
+        5
+      ]
+    ],
+    [
+      "request",
+      [
+        3
+      ]
+    ]
+  ],
+  "oracle_model_masks": [
+    4,
+    6,
+    7
+  ]
+}

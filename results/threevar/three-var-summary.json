@@ -1,0 +1,163 @@
+{
+  "dimension": 3,
+  "nonempty_clause_universe": 26,
+  "source_size_range": [
+    2,
+    4
+  ],
+  "selection": "all source formulas in the size range and all deletion subsets of every UNSAT source; no sampling",
+  "totals": {
+    "source_formulas": 17875,
+    "unsat_sources": 1661,
+    "queries": 25772,
+    "target_unsat": 4769,
+    "single_accept": 4682,
+    "closed_accept": 4769,
+    "single_miss": 87,
+    "closed_miss": 0,
+    "closed_witnesses_rechecked": 4769,
+    "incremental_full_evaluation_matches": 25772
+  },
+  "by_deleted_count": {
+    "0": {
+      "queries": 1661,
+      "target_unsat": 1661,
+      "single_miss": 0,
+      "closed_miss": 0
+    },
+    "1": {
+      "queries": 6542,
+      "target_unsat": 2280,
+      "single_miss": 78,
+      "closed_miss": 0
+    },
+    "2": {
+      "queries": 9663,
+      "target_unsat": 828,
+      "single_miss": 9,
+      "closed_miss": 0
+    },
+    "3": {
+      "queries": 6344,
+      "target_unsat": 0,
+      "single_miss": 0,
+      "closed_miss": 0
+    },
+    "4": {
+      "queries": 1562,
+      "target_unsat": 0,
+      "single_miss": 0,
+      "closed_miss": 0
+    }
+  },
+  "closed_gate_count": {
+    "min": 17,
+    "max": 1581,
+    "mean": 191.4503311258278
+  },
+  "closed_schema_count": {
+    "min": 1,
+    "max": 63,
+    "mean": 8.794099939795304
+  },
+  "first_gain": {
+    "source": {
+      "a01": [
+        -2,
+        -1
+      ],
+      "a04": [
+        -1
+      ],
+      "a07": [
+        -1,
+        2
+      ],
+      "a21": [
+        1
+      ]
+    },
+    "target": {
+      "a01": [
+        -2,
+        -1
+      ],
+      "a07": [
+        -1,
+        2
+      ],
+      "a21": [
+        1
+      ]
+    },
+    "single_support": [
+      [
+        "a04",
+        [
+          -1
+        ]
+      ],
+      [
+        "a21",
+        [
+          1
+        ]
+      ]
+    ],
+    "closed_witness": {
+      "nodes": [
+        {
+          "id": "n0",
+          "kind": "axiom",
+          "source": "a01",
+          "clause": [
+            -2,
+            -1
+          ]
+        },
+        {
+          "id": "n1",
+          "kind": "axiom",
+          "source": "a07",
+          "clause": [
+            -1,
+            2
+          ]
+        },
+        {
+          "id": "n2",
+          "kind": "axiom",
+          "source": "a21",
+          "clause": [
+            1
+          ]
+        },
+        {
+          "id": "n3",
+          "kind": "resolve",
+          "left": "n1",
+          "right": "n0",
+          "pivot": 2,
+          "clause": [
+            -1
+          ]
+        },
+        {
+          "id": "n4",
+          "kind": "resolve",
+          "left": "n2",
+          "right": "n3",
+          "pivot": 1,
+          "clause": []
+        }
+      ],
+      "root": "n4"
+    }
+  },
+  "cpu_seconds": 5.007703332,
+  "wall_seconds": 5.012939369999913,
+  "peak_rss_kib": 94760,
+  "workers": 1,
+  "randomness": "none",
+  "maturity": "complete finite enumeration for the stated bounded family"
+}

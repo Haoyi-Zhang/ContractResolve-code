@@ -1,0 +1,196 @@
+{
+  "success": true,
+  "workers": 4,
+  "per_child_timeout_seconds": 90,
+  "scientific_results_match": true,
+  "compared_files": [
+    "exhaustive/edits-0-512.csv",
+    "exhaustive/pilot-0-512.json",
+    "rat/rat-extensions.csv",
+    "rat/rat-summary.json",
+    "selectors/selector-summary.json",
+    "contracts/contract-summary.json",
+    "contracts/enable-and-ready-weaken.json",
+    "contracts/handshake-body-replacement.json",
+    "contracts/handshake-delete.json",
+    "contracts/handshake-irrelevant-add.json",
+    "contracts/mailbox-chain-delete.json",
+    "contracts/next-busy-delete.json",
+    "survival/circuit-stats.json",
+    "survival/survival-edits.csv",
+    "survival/survival-summary.json",
+    "all-subsets/all-subsets-summary.json",
+    "all-subsets/all-subsets.csv",
+    "threevar/three-var-deletions.csv",
+    "threevar/three-var-summary.json",
+    "compactness/compactness-summary.json",
+    "depth/depth-summary.json",
+    "survival-contracts/survival-contract-summary.json",
+    "horn/horn-exhaustive.csv",
+    "horn/horn-scale-queries.csv",
+    "horn/horn-summary.json",
+    "claim-audit/claim-audit.json"
+  ],
+  "runs": [
+    {
+      "name": "tests",
+      "arguments": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 7.0913086319999366
+    },
+    {
+      "name": "example",
+      "arguments": [
+        "src/check.py",
+        "--source",
+        "inputs/example-source.json",
+        "--certificate",
+        "inputs/example-proof.json",
+        "--target",
+        "inputs/example-target.json"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.6672602119999738
+    },
+    {
+      "name": "horn",
+      "arguments": [
+        "src/horn_probe.py",
+        "--out",
+        "<output>/horn"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 20.83168601200009
+    },
+    {
+      "name": "exhaustive",
+      "arguments": [
+        "src/pilot.py",
+        "--out",
+        "<output>/exhaustive",
+        "--start",
+        "0",
+        "--stop",
+        "512"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.2186493049998717
+    },
+    {
+      "name": "rat",
+      "arguments": [
+        "src/rat_probe.py",
+        "--out",
+        "<output>/rat"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.2170306810000966
+    },
+    {
+      "name": "selectors",
+      "arguments": [
+        "src/activation_probe.py",
+        "--out",
+        "<output>/selectors"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.0666009359999862
+    },
+    {
+      "name": "contracts",
+      "arguments": [
+        "src/contract_probe.py",
+        "--inputs",
+        "inputs/contract-cases.json",
+        "--out",
+        "<output>/contracts"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.6153378040000916
+    },
+    {
+      "name": "survival",
+      "arguments": [
+        "src/survival_probe.py",
+        "--out",
+        "<output>/survival"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.1297967519999474
+    },
+    {
+      "name": "all-subsets",
+      "arguments": [
+        "src/all_subset_probe.py",
+        "--out",
+        "<output>/all-subsets"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.3207428170001094
+    },
+    {
+      "name": "threevar",
+      "arguments": [
+        "src/three_var_probe.py",
+        "--out",
+        "<output>/threevar"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 5.725893905000021
+    },
+    {
+      "name": "compactness",
+      "arguments": [
+        "src/compactness_probe.py",
+        "--out",
+        "<output>/compactness"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.876062120000142
+    },
+    {
+      "name": "depth",
+      "arguments": [
+        "src/depth_probe.py",
+        "--out",
+        "<output>/depth"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 6.530403401000058
+    },
+    {
+      "name": "survival-contracts",
+      "arguments": [
+        "src/survival_contract_probe.py",
+        "--inputs",
+        "inputs/survival-contract-cases.json",
+        "--out",
+        "<output>/survival-contracts"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.565833653000027
+    },
+    {
+      "name": "claim-audit",
+      "arguments": [
+        "src/result_audit.py",
+        "--results",
+        "<output>",
+        "--out",
+        "<output>/claim-audit"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.2255346590000045
+    }
+  ],
+  "wall_seconds": 22.07668136999996,
+  "child_cpu_seconds": 58.543282999999995,
+  "boundary": "Reproducibility is not a machine-checked general proof, independent peer review, or a novelty result."
+}

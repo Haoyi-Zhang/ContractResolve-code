@@ -1,0 +1,42 @@
+{
+  "success": true,
+  "audit_independence": "Aggregates are recomputed from emitted rows without importing experiment, oracle, certificate, or circuit modules. This detects result/report drift, not a common parser/runtime defect or a general theorem error.",
+  "checks": [
+    "two-variable row-level survival counts and invariants",
+    "exact circuit gate/edge formulas and two-variable structure summaries",
+    "all two-variable source/deletion pairs, including SAT sources",
+    "three-variable all-deletion counts and closed-mode exactness",
+    "independent aggregation of the original exhaustive fragment probe",
+    "RAT-transport negative-control counts",
+    "selector assignment arithmetic and zero-failure result",
+    "duplicate-unit support and circuit-size formulas",
+    "accepted-root depth histograms",
+    "contract-table semantics and circuit structural formulas",
+    "complete three-variable Horn deletion family and replay exactness",
+    "scalable acyclic Horn contract graphs, size formulas, and edit-local updates"
+  ],
+  "key_claims": {
+    "references_not_audited_here": "Bibliographic audit is maintained separately; this script audits experiment evidence.",
+    "two_variable_queries": 19182,
+    "two_variable_all_source_deletion_pairs": 19683,
+    "two_variable_all_source_deletion_mismatches": 0,
+    "two_variable_retained_unsat": 16003,
+    "two_variable_single_misses": 2319,
+    "two_variable_closed_misses": 0,
+    "three_variable_queries": 25772,
+    "three_variable_retained_unsat": 4769,
+    "three_variable_single_misses": 87,
+    "three_variable_closed_misses": 0,
+    "stale_unsat_false_accepts": 2323,
+    "rat_unsafe_imports": 180,
+    "selector_assignments": 1048576,
+    "compactness_k64_supports": "18446744073709551616",
+    "horn_complete_pairs": 9921,
+    "horn_complete_unsat_targets": 846,
+    "horn_complete_selected_proof_misses": 3,
+    "horn_scale_queries": 560,
+    "horn_scale_selected_proof_misses": 515,
+    "horn_scale_max_variables": 4128,
+    "horn_scale_max_clauses": 16420
+  }
+}

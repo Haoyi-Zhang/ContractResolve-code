@@ -1,0 +1,29 @@
+{
+  "certificate_valid": true,
+  "conclusion": [],
+  "source_unsat_certified": true,
+  "support": [
+    [
+      "bad",
+      [
+        -2
+      ]
+    ],
+    [
+      "request",
+      [
+        1
+      ]
+    ],
+    [
+      "rule",
+      [
+        -1,
+        2
+      ]
+    ]
+  ],
+  "nodes_checked": 5,
+  "reuse_accepted": false,
+  "target_unsat_certified": false
+}

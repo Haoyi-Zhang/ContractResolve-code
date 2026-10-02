@@ -1,0 +1,198 @@
+{
+  "two_variable": {
+    "root_depth_histogram": {
+      "0": 9472,
+      "1": 4272,
+      "2": 2259
+    },
+    "root_depth": {
+      "min": 0,
+      "mean": 0.5492720114978441,
+      "max": 2
+    },
+    "by_edit_distance": {
+      "0": {
+        "queries": 417,
+        "retained_unsat": 417,
+        "recomputed_gates": {
+          "min": 0,
+          "mean": 0.0,
+          "max": 0
+        },
+        "recomputed_fraction": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "1": {
+        "queries": 3753,
+        "retained_unsat": 3434,
+        "recomputed_gates": {
+          "min": 0,
+          "mean": 31.288036237676526,
+          "max": 150
+        },
+        "recomputed_fraction": {
+          "min": 0.0,
+          "mean": 0.25722498801823446,
+          "max": 0.7647058823529411
+        }
+      },
+      "2": {
+        "queries": 15012,
+        "retained_unsat": 12152,
+        "recomputed_gates": {
+          "min": 0,
+          "mean": 50.224886757260855,
+          "max": 184
+        },
+        "recomputed_fraction": {
+          "min": 0.0,
+          "mean": 0.42954347035139784,
+          "max": 0.8823529411764706
+        }
+      }
+    }
+  },
+  "three_variable": {
+    "root_depth_histogram": {
+      "1": 3456,
+      "2": 1125,
+      "3": 188
+    },
+    "root_depth": {
+      "min": 1,
+      "mean": 1.3147410358565736,
+      "max": 3
+    },
+    "by_source_size": {
+      "2": {
+        "sources": 325,
+        "unsat_sources": 3,
+        "queries": 12,
+        "target_unsat": 3,
+        "recomputed_gates": {
+          "min": 0,
+          "mean": 8.5,
+          "max": 14
+        },
+        "recomputed_fraction": {
+          "min": 0.0,
+          "mean": 0.5,
+          "max": 0.8235294117647058
+        }
+      },
+      "3": {
+        "sources": 2600,
+        "unsat_sources": 96,
+        "queries": 768,
+        "target_unsat": 168,
+        "recomputed_gates": {
+          "min": 0,
+          "mean": 29.859375,
+          "max": 100
+        },
+        "recomputed_fraction": {
+          "min": 0.0,
+          "mean": 0.5665597030296221,
+          "max": 0.9259259259259259
+        }
+      },
+      "4": {
+        "sources": 14950,
+        "unsat_sources": 1562,
+        "queries": 24992,
+        "target_unsat": 4598,
+        "recomputed_gates": {
+          "min": 0,
+          "mean": 145.30381722151088,
+          "max": 1524
+        },
+        "recomputed_fraction": {
+          "min": 0.0,
+          "mean": 0.6643999800596876,
+          "max": 0.9639468690702088
+        }
+      }
+    },
+    "by_deleted_count": {
+      "0": {
+        "queries": 1661,
+        "target_unsat": 1661,
+        "recomputed_gates": {
+          "min": 0,
+          "mean": 0.0,
+          "max": 0
+        },
+        "recomputed_fraction": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "1": {
+        "queries": 6542,
+        "target_unsat": 2280,
+        "recomputed_gates": {
+          "min": 5,
+          "mean": 112.31977988382758,
+          "max": 1474
+        },
+        "recomputed_fraction": {
+          "min": 0.06818181818181818,
+          "mean": 0.4839147955627464,
+          "max": 0.9323213156230234
+        }
+      },
+      "2": {
+        "queries": 9663,
+        "target_unsat": 828,
+        "recomputed_gates": {
+          "min": 12,
+          "mean": 155.2468177584601,
+          "max": 1505
+        },
+        "recomputed_fraction": {
+          "min": 0.3076923076923077,
+          "mean": 0.7238644076655455,
+          "max": 0.9519291587602783
+        }
+      },
+      "3": {
+        "queries": 6344,
+        "target_unsat": 0,
+        "recomputed_gates": {
+          "min": 23,
+          "mean": 177.0044136191677,
+          "max": 1516
+        },
+        "recomputed_fraction": {
+          "min": 0.717948717948718,
+          "mean": 0.856045332973001,
+          "max": 0.958886780518659
+        }
+      },
+      "4": {
+        "queries": 1562,
+        "target_unsat": 0,
+        "recomputed_gates": {
+          "min": 34,
+          "mean": 189.88796414852752,
+          "max": 1524
+        },
+        "recomputed_fraction": {
+          "min": 0.8717948717948718,
+          "mean": 0.931228039279187,
+          "max": 0.9639468690702088
+        }
+      }
+    }
+  },
+  "cpu_seconds": 5.94133112,
+  "wall_seconds": 5.9498360580000735,
+  "peak_rss_kib": 96812,
+  "workers": 1,
+  "randomness": "none",
+  "interpretation": "earliest true circuit layer and conservatively reconsidered fanout; not proof-search time"
+}

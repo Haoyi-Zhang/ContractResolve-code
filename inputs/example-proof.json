@@ -1,0 +1,48 @@
+{
+  "nodes": [
+    {
+      "id": "n0",
+      "kind": "axiom",
+      "source": "request",
+      "clause": [
+        1
+      ]
+    },
+    {
+      "id": "n1",
+      "kind": "axiom",
+      "source": "rule",
+      "clause": [
+        -1,
+        2
+      ]
+    },
+    {
+      "id": "n2",
+      "kind": "axiom",
+      "source": "bad",
+      "clause": [
+        -2
+      ]
+    },
+    {
+      "id": "n3",
+      "kind": "resolve",
+      "left": "n1",
+      "right": "n2",
+      "pivot": 2,
+      "clause": [
+        -1
+      ]
+    },
+    {
+      "id": "n4",
+      "kind": "resolve",
+      "left": "n0",
+      "right": "n3",
+      "pivot": 1,
+      "clause": []
+    }
+  ],
+  "root": "n4"
+}

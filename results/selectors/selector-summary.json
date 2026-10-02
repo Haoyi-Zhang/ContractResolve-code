@@ -1,0 +1,14 @@
+{
+  "formulas": 512,
+  "public_variables": 2,
+  "selectors": 9,
+  "encoded_variables": 11,
+  "assignments_checked": 1048576,
+  "projected_equivalence_failures": 0,
+  "cpu_seconds": 0.440585917,
+  "wall_seconds": 0.4411657139999079,
+  "peak_rss_kib": 92968,
+  "workers": 1,
+  "maturity": "finite-check of a standard reduction",
+  "boundary": "Boolean CNF semantics only; no native LIDRUP trace is generated"
+}

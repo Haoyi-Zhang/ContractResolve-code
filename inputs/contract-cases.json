@@ -1,0 +1,50 @@
+[
+  {
+    "case":"handshake-delete",
+    "description":"Original Boolean toy: request implies acknowledgement; remove that implication.",
+    "symbols":{"1":"request","2":"acknowledgement"},
+    "source":{"rule":[-1,2],"request":[1],"bad":[-2]},
+    "target":{"request":[1],"bad":[-2]},
+    "expected":"sat"
+  },
+  {
+    "case":"handshake-irrelevant-add",
+    "description":"Add an unrelated Boolean mode assumption to the same UNSAT query.",
+    "symbols":{"1":"request","2":"acknowledgement","3":"mode"},
+    "source":{"rule":[-1,2],"request":[1],"bad":[-2]},
+    "target":{"rule":[-1,2],"request":[1],"bad":[-2],"mode":[3]},
+    "expected":"unsat"
+  },
+  {
+    "case":"handshake-body-replacement",
+    "description":"Keep the label but change request-implies-ack to request-implies-not-ack.",
+    "symbols":{"1":"request","2":"acknowledgement"},
+    "source":{"rule":[-1,2],"request":[1],"bad":[-2]},
+    "target":{"rule":[-2,-1],"request":[1],"bad":[-2]},
+    "expected":"sat"
+  },
+  {
+    "case":"mailbox-chain-delete",
+    "description":"Two implications ack->valid->ready; remove valid->ready.",
+    "symbols":{"1":"ack","2":"valid","3":"ready"},
+    "source":{"ack_valid":[-1,2],"valid_ready":[-2,3],"ack":[1],"bad":[-3]},
+    "target":{"ack_valid":[-1,2],"ack":[1],"bad":[-3]},
+    "expected":"sat"
+  },
+  {
+    "case":"enable-and-ready-weaken",
+    "description":"Write equals enable AND ready; replace write->ready by a mode-dependent relaxation.",
+    "symbols":{"1":"write","2":"enable","3":"ready","4":"mode"},
+    "source":{"w_e":[-1,2],"w_r":[-1,3],"er_w":[-3,-2,1],"write":[1],"bad":[-3]},
+    "target":{"w_e":[-1,2],"w_r":[-1,3,4],"er_w":[-3,-2,1],"write":[1],"bad":[-3]},
+    "expected":"sat"
+  },
+  {
+    "case":"next-busy-delete",
+    "description":"One bounded transition: t=busy AND not ack; next=request OR t. Delete request->next.",
+    "symbols":{"1":"busy","2":"ack","3":"request","4":"t","5":"next"},
+    "source":{"t_busy":[-4,1],"t_not_ack":[-4,-2],"busy_not_ack_t":[-1,2,4],"req_next":[-3,5],"t_next":[-4,5],"next_req_t":[-5,3,4],"request":[3],"bad":[-5]},
+    "target":{"t_busy":[-4,1],"t_not_ack":[-4,-2],"busy_not_ack_t":[-1,2,4],"t_next":[-4,5],"next_req_t":[-5,3,4],"request":[3],"bad":[-5]},
+    "expected":"sat"
+  }
+]

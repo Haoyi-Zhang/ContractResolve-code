@@ -1,0 +1,68 @@
+{
+  "dimension": 2,
+  "clause_universe": 9,
+  "source_range": [
+    0,
+    64
+  ],
+  "source_formulas": 64,
+  "edit_radius": 2,
+  "queries": 2944,
+  "totals": {
+    "fragments": 1104,
+    "accepted": 696,
+    "entailed": 935,
+    "false_accepts": 0,
+    "conservative_rejections": 239,
+    "stale_unsat_false_accept": 283,
+    "reused_unsat": 1416
+  },
+  "first_conservative_rejection": {
+    "source": {
+      "a0": [
+        -2,
+        -1
+      ],
+      "a2": [
+        -1,
+        2
+      ]
+    },
+    "target": {
+      "a1": [
+        -1
+      ],
+      "a2": [
+        -1,
+        2
+      ]
+    },
+    "conclusion": [
+      -1
+    ],
+    "support": [
+      [
+        "a0",
+        [
+          -2,
+          -1
+        ]
+      ],
+      [
+        "a2",
+        [
+          -1,
+          2
+        ]
+      ]
+    ],
+    "source_mask": 5,
+    "target_mask": 6
+  },
+  "cpu_seconds": 0.03511188500000001,
+  "wall_seconds": 0.035112554000022556,
+  "peak_rss_kib": 93364,
+  "workers": 1,
+  "randomness": "none; exhaustive ordered enumeration",
+  "maturity": "finite-check, not a machine-checked general proof"
+}
