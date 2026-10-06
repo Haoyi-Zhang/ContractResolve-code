@@ -8,6 +8,11 @@ results, and an evidence auditor.
 
 ## Reproduce all retained results
 
+Requirements: Linux and Python 3.10 or newer, with assertions enabled. The full
+runner and measurement drivers use the Unix-only `resource` module and Linux
+peak-RSS units. The pure checker/encoding APIs and unit suite do not require
+that telemetry; running them on another host is not a full reproduction.
+
 From the repository root:
 
 ```sh
@@ -21,9 +26,11 @@ has a 90-second wall timeout. No network, external SAT solver, GPU, model API,
 or private dataset is used.
 
 A successful run writes `reproduction.json`, reports 14 successful children,
-runs 88 tests, and compares 26 scientific files across 12 result families.
+runs 91 tests, and compares 26 scientific files across 12 result families.
 Resource timings are observational and are excluded from exact equality checks;
 all semantic CSV content and all non-timing JSON fields must match.
+The archived `results/checks/` logs retain the earlier 88-test Linux run; their
+timings and resource observations are not measurements of the current host.
 
 Generate without comparing retained results:
 
@@ -74,6 +81,9 @@ over-budget surviving path, `ReplayBudgetExceeded` is a resource rejection; it
 is neither logical false nor proof acceptance. A false root can produce a
 deterministic sufficient blocking cut. No minimum or whole-target SAT claim is
 made.
+Monotonicity concerns circuit truth, not budgeted acceptance. Restoring a leaf
+can change the deterministic selected proof to a larger over-budget witness;
+the implementation does not search for a minimum or an alternative within budget.
 
 ### Exact Horn circuits
 
@@ -98,7 +108,7 @@ version binding, checked proof replay, and reuse under edits.
   retained-source oracle.
 - `src/*_probe.py` - deterministic complete or bounded experiments.
 - `src/result_audit.py` - independent row-level aggregation and invariants.
-- `tests/` - 88 parser, proof, circuit, Horn, reference, budget, and tamper tests.
+- `tests/` - 91 parser, proof, circuit, Horn, reference, budget, and tamper tests.
 - `inputs/` - all hand-written JSON fixtures.
 - `results/` - retained row-level evidence, summaries, logs, and resource record.
 - `proofs/arguments.md` - mathematical definitions, proofs, and nonclaims.
@@ -117,6 +127,9 @@ version binding, checked proof replay, and reuse under edits.
   recovered, zero oracle or update mismatch.
 - 560 generated Horn scale queries through 4,128 atoms and 16,420 clauses: 528
   UNSAT, 515 selected-proof misses recovered, zero oracle or update mismatch.
+  Here the retained `horn_accept` column records circuit truth; only nine
+  fixed-position positive queries were replayed. It does not record 528
+  proof-carrying cache acceptances. All 846 small-family Horn positives replay.
 - duplicate-unit `k=64`: `2^64` minimal supports represented by 25,155 generic
   gates.
 

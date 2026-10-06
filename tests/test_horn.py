@@ -192,6 +192,28 @@ class HornTests(unittest.TestCase):
         with self.assertRaises(ReplayBudgetExceeded):
             circuit.reconstruct(evaluation)
 
+    def test_restoration_is_logically_monotone_not_replay_budget_monotone(self):
+        source = {
+            "a-empty": [], "fact1": [1], "fact2": [2], "fact3": [3],
+            "a-wide": [-3, -2, -1, 4], "fact5": [5],
+            "z-short": [-5, 4], "deny": [-4],
+        }
+        circuit = compile_horn(source, replay_node_limit=5)
+        target = {sid: body for sid, body in source.items()
+                  if sid not in {"a-empty", "fact1"}}
+        before = circuit.evaluate(target)
+        self.assertTrue(circuit.survives(before))
+        self.assertEqual(circuit.replay_node_count(before), 5)
+        shorter = circuit.reconstruct(before)
+        self.assertEqual(verify(target, shorter).conclusion, ())
+        restored = {**target, "fact1": source["fact1"]}
+        after = circuit.update(before, restored)
+        self.assertTrue(circuit.survives(after))
+        self.assertEqual(after.values, circuit.evaluate(restored).values)
+        self.assertEqual(verify(restored, shorter).conclusion, ())
+        with self.assertRaisesRegex(ReplayBudgetExceeded, r"requires 9 ordinary proof nodes"):
+            circuit.reconstruct(after)
+
     def test_deep_horn_replay_and_cut_use_iterative_traversal(self):
         source = {"fact": [1]}
         previous = 1

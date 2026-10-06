@@ -5,7 +5,7 @@ exactly for an active clause. No solver implementation or proof-format change is
 required. This program checks semantic equivalence, not LIDRUP interoperability.
 """
 from __future__ import annotations
-import argparse,json,time,resource
+import argparse,json,time
 from pathlib import Path
 from itertools import product
 from oracle import all_clauses,satisfying_masks
@@ -18,6 +18,9 @@ def encode(universe: list[list[int]], active: set[int], n: int) -> list[list[int
 
 
 def run(out: Path) -> None:
+    # Resource telemetry belongs to the Linux driver, not the pure encoding API.
+    import resource
+
     out.mkdir(parents=True,exist_ok=True)
     cpu,wall=time.process_time(),time.perf_counter()
     universe=all_clauses(2)

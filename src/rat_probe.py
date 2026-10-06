@@ -5,7 +5,7 @@ separate truth-table oracle checks semantic assertions. All inputs are original
 complete two-variable enumerations, not traces from an external solver.
 """
 from __future__ import annotations
-import argparse,csv,json,resource,time
+import argparse,csv,json,time
 from pathlib import Path
 from oracle import all_clauses,satisfying_masks,entails
 
@@ -43,6 +43,10 @@ def rat(base: list[list[int]], clause: list[int], pivot: int) -> bool:
 
 
 def run(out: Path) -> None:
+    # Only the Linux measurement driver needs Unix resource accounting.  Keep
+    # the pure finite RUP/RAT predicates importable on other Python hosts.
+    import resource
+
     out.mkdir(parents=True,exist_ok=True)
     cpu,wall=time.process_time(),time.perf_counter()
     universe=all_clauses(2)

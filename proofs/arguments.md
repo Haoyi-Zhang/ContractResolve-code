@@ -69,6 +69,14 @@ is a resource rejection, not logical false and not proof acceptance. Replay is
 mandatory; increasing the Python recursion limit or bypassing replay is not part
 of the contract.
 
+Monotonicity applies to the logical root, not to acceptance under `B`. Restoring
+leaves can change deterministic OR selection to a larger witness; the remaining
+existence of a smaller proof does not require this implementation to find it.
+For example, with an empty source axiom permitting admission at `B=5`, a target
+can replay a one-antecedent Horn derivation in five nodes. Restoring a fact can
+enable an earlier three-antecedent rule whose selected replay has nine nodes.
+The root remains true, but the latter replay is resource-rejected.
+
 ## 4. Closed-mode exactness
 
 Closed mode first requires `Aset = dom(F)`. It then checks that the finite
@@ -229,6 +237,11 @@ deterministic false-parent cut.
 **Theorem.** If every named leaf remains false, the selected gate remains false
 regardless of other leaves. The result is sufficient, not minimum, necessary,
 unique, or a minimal correction set.
+
+For this fixed circuit, the contrapositive says that a leaf-only change making
+the gate true must activate at least one named cut leaf, not necessarily all of
+them. This necessity for fixed-circuit success does not constrain a new proof
+using target additions or a different admitted schema library.
 
 ## 9. Exponential supports and representation boundary
 

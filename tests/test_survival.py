@@ -13,7 +13,7 @@ import itertools
 import unittest
 from dataclasses import replace
 
-from certificates import Rejected, verify
+from certificates import Rejected, ReplayBudgetExceeded, verify
 from producer import solve
 from survival import compile_survival
 from survival_producer import closure_certificate, duplicate_unit_chain, trace_certificate
@@ -280,6 +280,34 @@ class SurvivalTests(unittest.TestCase):
         self.assertEqual(len(packet["nodes"]), 1)
         self.assertEqual(verify(source, packet).conclusion, ())
         self.assertEqual(circuit.blocking_cut(circuit.evaluate({})), ("e",))
+
+    def test_positive_circuit_is_not_replay_acceptance(self):
+        chain = {"fact": [1], "rule": [-1, 2], "deny": [-2]}
+        source = {"a-empty": [], **chain}
+        cert = trace_certificate(source, [solve(chain)["certificate"]])
+        circuit = compile_survival(source, cert, replay_node_limit=1)
+        self.assertEqual(circuit.replay_node_count(circuit.evaluate(source)), 1)
+        evaluation = circuit.evaluate(chain)
+        self.assertTrue(circuit.survives(evaluation))
+        with self.assertRaises(ReplayBudgetExceeded):
+            circuit.reconstruct(evaluation)
+        self.assertTrue(circuit.survives(evaluation))
+        larger = compile_survival(source, cert, replay_node_limit=5)
+        self.assertEqual(larger.replay_node_count(larger.evaluate(chain)), 5)
+        self.assertEqual(verify(chain, larger.reconstruct(larger.evaluate(chain))).conclusion, ())
+
+    def test_cut_blocks_fixed_circuit_not_new_target_proof(self):
+        source = {"fact": [1], "rule": [-1, 2], "deny": [-2]}
+        circuit = compile_survival(source, closure_certificate(source))
+        target = {"fact": [1], "deny": [-2]}
+        cut = set(circuit.blocking_cut(circuit.evaluate(target)))
+        self.assertEqual(cut, {"rule"})
+        stronger = {**target, "new-positive": [3], "new-negative": [-3]}
+        self.assertFalse(circuit.survives(circuit.evaluate(stronger)))
+        self.assertEqual(verify(stronger, solve(stronger)["certificate"]).conclusion, ())
+        repaired = {**target, "rule": source["rule"]}
+        self.assertTrue(circuit.survives(circuit.evaluate(repaired)))
+        self.assertTrue(cut.intersection(repaired))
 
 
 if __name__ == "__main__":
