@@ -22,7 +22,7 @@ python3 reproduce.py --out reproduced-results
 The output directory must not already exist. The runner uses only the Python
 standard library and bundled inputs. It schedules at most four independent
 children concurrently; every individual experiment is single-worker. Each child
-has a 90-second wall timeout. No network, external SAT solver, GPU, model API,
+has a 180-second wall timeout. No network, external SAT solver, GPU, model API,
 or private dataset is used.
 
 A successful run writes `reproduction.json`, reports 14 successful children,

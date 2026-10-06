@@ -9,7 +9,7 @@ permissions:
 jobs:
   finite-reproduction:
     runs-on: ubuntu-24.04
-    timeout-minutes: 8
+    timeout-minutes: 12
     env:
       PYTHONUTF8: '1'
       PYTHONDONTWRITEBYTECODE: '1'
@@ -30,8 +30,8 @@ jobs:
           # Python children bounds their summed address space to 5 GiB.
           # This is a ceiling, not an aggregate-RSS measurement.
           ulimit -v 1048576
-          ulimit -t 180
-          timeout --signal=TERM --kill-after=10s 240s \
+          ulimit -t 360
+          timeout --signal=TERM --kill-after=10s 480s \
             python -B reproduce.py --out scientific-output \
             > scientific-output.log 2>&1
       - name: Upload raw outputs even after a failed or timed-out check

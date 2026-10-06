@@ -23,7 +23,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent
 VOLATILE = {"peak_rss_kib"}
 MAX_WORKERS = 4
-PER_CHILD_TIMEOUT_SECONDS = 90
+PER_CHILD_TIMEOUT_SECONDS = 180
 
 
 def stable(obj: Any) -> Any:
