@@ -142,6 +142,13 @@ indices; the fractions are not total-work or runtime speedups.
 
 ## Trust and threat boundary
 
+The current Ubuntu / CPython 3.12.14 reproduction passed 91 tests and all 14
+commands. All 26 scientific files agreed, excluding only declared timing/RSS
+fields. Elapsed time was 68.263204 seconds, aggregate child CPU 126.870280
+seconds, and Horn-probe peak RSS 674,428 KiB. Current records are retained in
+`results/measurements/current-linux/`; a single-child peak is not aggregate
+concurrent memory.
+
 Trusted for this artifact: the strict parser/checkers, circuit evaluators, Python
 interpreter, and host operating system. Untrusted: producers, serialized proof
 packets, targets, result claims, and cached support summaries. Replayed proofs
