@@ -13,6 +13,7 @@ The module is a reference checker, not a SAT solver or an RTL front end.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from heapq import heapify, heappop, heappush
 from typing import Any, Mapping, Optional
 
 from certificates import MAX_NODES, Rejected, ReplayBudgetExceeded, formula, verify
@@ -314,16 +315,16 @@ def _topological_order(variables: tuple[int, ...], clauses: tuple[HornClause, ..
             if clause.head not in successors[antecedent]:
                 successors[antecedent].add(clause.head)
                 indegree[clause.head] += 1
-    ready = sorted(variable for variable in variables if indegree[variable] == 0)
+    ready = [variable for variable in variables if indegree[variable] == 0]
+    heapify(ready)
     order: list[int] = []
     while ready:
-        variable = ready.pop(0)
+        variable = heappop(ready)
         order.append(variable)
         for successor in sorted(successors[variable]):
             indegree[successor] -= 1
             if indegree[successor] == 0:
-                ready.append(successor)
-                ready.sort()
+                heappush(ready, successor)
     if len(order) != len(variables):
         return None
     return tuple(order)

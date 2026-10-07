@@ -25,8 +25,8 @@ children concurrently; every individual experiment is single-worker. Each child
 has a 180-second wall timeout. No network, external SAT solver, GPU, model API,
 or private dataset is used.
 
-A successful run writes `reproduction.json`, reports 14 successful children,
-runs 91 tests, and compares 26 scientific files across 12 result families.
+The retained complete Linux run wrote `reproduction.json`, reported 14 successful
+children, ran 91 tests, and compared 26 scientific files across 12 result families.
 Resource timings are observational and are excluded from exact equality checks;
 all semantic CSV content and all non-timing JSON fields must match.
 The archived `results/checks/` logs retain the earlier 88-test Linux run; their
@@ -43,6 +43,19 @@ Run the test suite alone:
 ```sh
 python3 -m unittest discover -s tests -v
 ```
+
+Focused file-free ready-order regressions are available separately:
+
+```sh
+python3 -B -m unittest discover -s tests -p 'test_horn_ready.py' -v
+```
+
+These six tests compare the minimum-heap order with a test-local smallest-ready
+scan, including all 64 forward-edge sets and their four-atom relabelings. Small
+Horn/deletion cases retain literal-truth, exact gate, witness, cut and budget
+checks. The heap preserves the deterministic order; it adds no runtime claim.
+The recorded 91-test Linux results are retained campaign evidence, not a fresh
+execution of the expanded suite.
 
 ## Checked modes
 
@@ -108,7 +121,8 @@ version binding, checked proof replay, and reuse under edits.
   retained-source oracle.
 - `src/*_probe.py` - deterministic complete or bounded experiments.
 - `src/result_audit.py` - independent row-level aggregation and invariants.
-- `tests/` - 91 parser, proof, circuit, Horn, reference, budget, and tamper tests.
+- `tests/` - parser, proof, circuit, Horn, reference, budget, and tamper tests,
+  including the focused current ready-order regressions.
 - `inputs/` - all hand-written JSON fixtures.
 - `results/` - retained row-level evidence, summaries, logs, and resource record.
 - `proofs/arguments.md` - mathematical definitions, proofs, and nonclaims.
