@@ -2,7 +2,7 @@
 
 ## Inventory
 
-The final manuscript contains **63 unique scholarly references**, all cited in
+The manuscript contains **63 unique scholarly references**, all cited in
 the body. The inventory has 60 DOI locators and three official academic archive
 URLs. No publication is redistributed and the manuscript contains no
 `\nocite{*}` padding.
