@@ -50,11 +50,3 @@ Recent proof-valid caching studies premise erasures and alternative proof
 structure; algebraic recycling studies parameterized certificate patterns; and
 Cache-a-lot studies SMT core reuse under substitutions. The manuscript presents
 these as adjacent work and does not assert priority over them.
-
-## Venue and workflow sources
-
-`external_resources.csv` separately records the live TCAD instructions, IEEE
-template selector, supplied IEEE class/style files, and the Python runtime. The
-venue page was rechecked on 2026-09-20. It must be checked again immediately
-before any external submission because page limits, anonymity, templates, and
-AI-disclosure rules can change.
