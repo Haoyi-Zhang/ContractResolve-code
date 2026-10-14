@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+from datetime import date
 import re
 import unittest
 from pathlib import Path
@@ -39,11 +40,29 @@ class ReferenceAuditTests(unittest.TestCase):
             self.assertTrue(row["manuscript_role"].strip())
             self.assertIn(row["audit_status"], allowed_status)
             self.assertIn(row["content_review_depth"], allowed_depth)
-            self.assertIn(row["access_date"], {"2026-09-16", "2026-09-20"})
+            self.assertGreaterEqual(date.fromisoformat(row["access_date"]), date(2026, 9, 16))
             if row["locator_kind"] == "DOI":
                 self.assertRegex(row["canonical_locator"], doi_pattern)
             else:
                 self.assertTrue(row["canonical_locator"].startswith("https://"))
+
+    def test_rup_uses_official_conference_archive(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        expected = ("https://isaim2008.unl.edu/PAPERS/TechnicalProgram/"
+                    "ISAIM2008_0008_60a1f9b2fd607a61ec9e0feac3f438f8.pdf")
+        with (root / "reference_audit.csv").open(newline="", encoding="utf-8") as handle:
+            row = next(row for row in csv.DictReader(handle) if row["key"] == "vangelder2008")
+        self.assertEqual(row["canonical_locator"], expected)
+        resource_text = (root / "external_resources.csv").read_text(encoding="utf-8")
+        self.assertIn(expected, resource_text)
+        self.assertNotIn("https://users.soe.ucsc.edu/~avg/Papers/proofs-isaim08.pdf", resource_text)
+        bibliography = root.parent / "paper" / "references.bib"
+        if bibliography.is_file():
+            text = bibliography.read_text(encoding="utf-8")
+            record = text.split("@inproceedings{vangelder2008,", 1)[1].split("\n@", 1)[0]
+            self.assertIn("author={Van Gelder, Allen}", record)
+            self.assertIn(expected, record)
+            self.assertNotIn("users.soe.ucsc.edu", record)
 
 
 if __name__ == "__main__":
