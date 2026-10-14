@@ -64,6 +64,22 @@ class ReferenceAuditTests(unittest.TestCase):
             self.assertIn(expected, record)
             self.assertNotIn("users.soe.ucsc.edu", record)
 
+    def test_satire_record_preserves_reviewed_dependency_attribution(self) -> None:
+        """Regression for the reviewed passage, not automated paper entailment."""
+        root = Path(__file__).resolve().parents[1]
+        with (root / 'reference_audit.csv').open(newline='', encoding='utf-8') as file:
+            row = next(r for r in csv.DictReader(file) if r['key'] == 'satire2001')
+        self.assertEqual(row['canonical_locator'], 'https://doi.org/10.1145/378239.379019')
+        self.assertEqual(row['content_review_depth'], 'substantive_or_targeted_text_inspection_recorded')
+        self.assertIn('parent-constraint hierarchies', row['notes'])
+        self.assertIn('removal of dependent learned clauses', row['notes'])
+        paper = root.parent / 'paper/main.tex'
+        if paper.is_file():
+            text = ' '.join(paper.read_text(encoding='utf-8').split())
+            self.assertIn('SATIRE also records parent-constraint dependencies', text)
+            self.assertIn('already-checked resolution derivations under exact source-version edits', text)
+            self.assertNotIn('retained CDCL state and selector activation do not themselves identify which old derivations survive', text)
+
 
 if __name__ == "__main__":
     unittest.main()
