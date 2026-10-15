@@ -1,0 +1,5850 @@
+[
+  {
+    "case": "contract-cases/handshake-delete",
+    "source": {
+      "rule": [
+        -1,
+        2
+      ],
+      "request": [
+        1
+      ],
+      "bad": [
+        -2
+      ]
+    },
+    "native_version": "4.13.4",
+    "source_dimacs": "p cnf 2 3\n-2 0\n1 0\n-1 2 0\n",
+    "source_packets": [
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "rule",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      }
+    ],
+    "native_proofs": [
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))"
+    ],
+    "queries": [
+      {
+        "query": "provided-edit",
+        "target": {
+          "request": [
+            1
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/bad",
+        "target": {
+          "rule": [
+            -1,
+            2
+          ],
+          "request": [
+            1
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/request",
+        "target": {
+          "rule": [
+            -1,
+            2
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": false,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/rule",
+        "target": {
+          "request": [
+            1
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      }
+    ]
+  },
+  {
+    "case": "contract-cases/handshake-irrelevant-add",
+    "source": {
+      "rule": [
+        -1,
+        2
+      ],
+      "request": [
+        1
+      ],
+      "bad": [
+        -2
+      ]
+    },
+    "native_version": "4.13.4",
+    "source_dimacs": "p cnf 2 3\n-2 0\n1 0\n-1 2 0\n",
+    "source_packets": [
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "rule",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      }
+    ],
+    "native_proofs": [
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))"
+    ],
+    "queries": [
+      {
+        "query": "provided-edit",
+        "target": {
+          "rule": [
+            -1,
+            2
+          ],
+          "request": [
+            1
+          ],
+          "bad": [
+            -2
+          ],
+          "mode": [
+            3
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "rule",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 2,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n2",
+                "right": "n3",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "rule",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n0",
+              "pivot": 2,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/bad",
+        "target": {
+          "rule": [
+            -1,
+            2
+          ],
+          "request": [
+            1
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/request",
+        "target": {
+          "rule": [
+            -1,
+            2
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": false,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/rule",
+        "target": {
+          "request": [
+            1
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      }
+    ]
+  },
+  {
+    "case": "contract-cases/handshake-body-replacement",
+    "source": {
+      "rule": [
+        -1,
+        2
+      ],
+      "request": [
+        1
+      ],
+      "bad": [
+        -2
+      ]
+    },
+    "native_version": "4.13.4",
+    "source_dimacs": "p cnf 2 3\n-2 0\n1 0\n-1 2 0\n",
+    "source_packets": [
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "rule",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      }
+    ],
+    "native_proofs": [
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))"
+    ],
+    "queries": [
+      {
+        "query": "provided-edit",
+        "target": {
+          "rule": [
+            -2,
+            -1
+          ],
+          "request": [
+            1
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "2": false,
+            "1": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/bad",
+        "target": {
+          "rule": [
+            -1,
+            2
+          ],
+          "request": [
+            1
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/request",
+        "target": {
+          "rule": [
+            -1,
+            2
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": false,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/rule",
+        "target": {
+          "request": [
+            1
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      }
+    ]
+  },
+  {
+    "case": "contract-cases/mailbox-chain-delete",
+    "source": {
+      "ack_valid": [
+        -1,
+        2
+      ],
+      "valid_ready": [
+        -2,
+        3
+      ],
+      "ack": [
+        1
+      ],
+      "bad": [
+        -3
+      ]
+    },
+    "native_version": "4.13.4",
+    "source_dimacs": "p cnf 3 4\n1 0\n-1 2 0\n-3 0\n-2 3 0\n",
+    "source_packets": [
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "valid_ready",
+            "clause": [
+              -2,
+              3
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "ack_valid",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "ack",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n1",
+            "pivot": 1,
+            "clause": [
+              2
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -3
+            ]
+          },
+          {
+            "id": "n5",
+            "kind": "resolve",
+            "left": "n3",
+            "right": "n0",
+            "pivot": 2,
+            "clause": [
+              3
+            ]
+          },
+          {
+            "id": "n6",
+            "kind": "resolve",
+            "left": "n5",
+            "right": "n4",
+            "pivot": 3,
+            "clause": []
+          }
+        ],
+        "root": "n6"
+      }
+    ],
+    "native_proofs": [
+      "(let ((a!1 (rewrite (= (or (not v_2) v_3) (or v_3 (not v_2)))))\n      (a!3 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_2) v_3)) a!1 (or v_3 (not v_2))))\n      (a!4 (mp (asserted (or (not v_1) v_2)) a!3 (or v_2 (not v_1)))))\n  (unit-resolution a!2\n                   (unit-resolution a!4 (asserted v_1) v_2)\n                   (asserted (not v_3))\n                   false)))"
+    ],
+    "queries": [
+      {
+        "query": "provided-edit",
+        "target": {
+          "ack_valid": [
+            -1,
+            2
+          ],
+          "ack": [
+            1
+          ],
+          "bad": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true,
+            "3": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/ack",
+        "target": {
+          "ack_valid": [
+            -1,
+            2
+          ],
+          "valid_ready": [
+            -2,
+            3
+          ],
+          "bad": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": false,
+            "2": false,
+            "3": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/ack_valid",
+        "target": {
+          "valid_ready": [
+            -2,
+            3
+          ],
+          "ack": [
+            1
+          ],
+          "bad": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "2": false,
+            "3": false,
+            "1": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/bad",
+        "target": {
+          "ack_valid": [
+            -1,
+            2
+          ],
+          "valid_ready": [
+            -2,
+            3
+          ],
+          "ack": [
+            1
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true,
+            "3": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/valid_ready",
+        "target": {
+          "ack_valid": [
+            -1,
+            2
+          ],
+          "ack": [
+            1
+          ],
+          "bad": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true,
+            "3": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      }
+    ]
+  },
+  {
+    "case": "contract-cases/enable-and-ready-weaken",
+    "source": {
+      "w_e": [
+        -1,
+        2
+      ],
+      "w_r": [
+        -1,
+        3
+      ],
+      "er_w": [
+        -3,
+        -2,
+        1
+      ],
+      "write": [
+        1
+      ],
+      "bad": [
+        -3
+      ]
+    },
+    "native_version": "4.13.4",
+    "source_dimacs": "p cnf 3 5\n-3 0\n-3 -2 1 0\n-1 2 0\n-1 3 0\n1 0\n",
+    "source_packets": [
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "w_r",
+            "clause": [
+              -1,
+              3
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -3
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 3,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "axiom",
+            "source": "write",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n3",
+            "right": "n2",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      }
+    ],
+    "native_proofs": [
+      "(let ((a!1 (rewrite (= (or (not v_1) v_3) (or v_3 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_3)) a!1 (or v_3 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_3)) (not v_1))\n                   (asserted v_1)\n                   false)))"
+    ],
+    "queries": [
+      {
+        "query": "provided-edit",
+        "target": {
+          "w_e": [
+            -1,
+            2
+          ],
+          "w_r": [
+            -1,
+            3,
+            4
+          ],
+          "er_w": [
+            -3,
+            -2,
+            1
+          ],
+          "write": [
+            1
+          ],
+          "bad": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true,
+            "3": false,
+            "4": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/bad",
+        "target": {
+          "w_e": [
+            -1,
+            2
+          ],
+          "w_r": [
+            -1,
+            3
+          ],
+          "er_w": [
+            -3,
+            -2,
+            1
+          ],
+          "write": [
+            1
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true,
+            "3": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/er_w",
+        "target": {
+          "w_e": [
+            -1,
+            2
+          ],
+          "w_r": [
+            -1,
+            3
+          ],
+          "write": [
+            1
+          ],
+          "bad": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "w_r",
+                "clause": [
+                  -1,
+                  3
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -3
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 3,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "write",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_3) (or v_3 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_3)) a!1 (or v_3 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_3)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -3
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "w_r",
+              "clause": [
+                -1,
+                3
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "write",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 3,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/w_e",
+        "target": {
+          "w_r": [
+            -1,
+            3
+          ],
+          "er_w": [
+            -3,
+            -2,
+            1
+          ],
+          "write": [
+            1
+          ],
+          "bad": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "w_r",
+                "clause": [
+                  -1,
+                  3
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -3
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 3,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "write",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_3) (or v_3 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_3)) a!1 (or v_3 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_3)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -3
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "w_r",
+              "clause": [
+                -1,
+                3
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "write",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 3,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/w_r",
+        "target": {
+          "w_e": [
+            -1,
+            2
+          ],
+          "er_w": [
+            -3,
+            -2,
+            1
+          ],
+          "write": [
+            1
+          ],
+          "bad": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true,
+            "3": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/write",
+        "target": {
+          "w_e": [
+            -1,
+            2
+          ],
+          "w_r": [
+            -1,
+            3
+          ],
+          "er_w": [
+            -3,
+            -2,
+            1
+          ],
+          "bad": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": false,
+            "2": false,
+            "3": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      }
+    ]
+  },
+  {
+    "case": "contract-cases/next-busy-delete",
+    "source": {
+      "t_busy": [
+        -4,
+        1
+      ],
+      "t_not_ack": [
+        -4,
+        -2
+      ],
+      "busy_not_ack_t": [
+        -1,
+        2,
+        4
+      ],
+      "req_next": [
+        -3,
+        5
+      ],
+      "t_next": [
+        -4,
+        5
+      ],
+      "next_req_t": [
+        -5,
+        3,
+        4
+      ],
+      "request": [
+        3
+      ],
+      "bad": [
+        -5
+      ]
+    },
+    "native_version": "4.13.4",
+    "source_dimacs": "p cnf 5 8\n-5 0\n-1 2 4 0\n-5 3 4 0\n-3 5 0\n3 0\n-4 1 0\n-4 5 0\n-4 -2 0\n",
+    "source_packets": [
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "req_next",
+            "clause": [
+              -3,
+              5
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -5
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 5,
+            "clause": [
+              -3
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              3
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n3",
+            "right": "n2",
+            "pivot": 3,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      }
+    ],
+    "native_proofs": [
+      "(let ((a!1 (rewrite (= (or (not v_3) v_5) (or v_5 (not v_3))))))\n(let ((a!2 (mp (asserted (or (not v_3) v_5)) a!1 (or v_5 (not v_3)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_5)) (not v_3))\n                   (asserted v_3)\n                   false)))"
+    ],
+    "queries": [
+      {
+        "query": "provided-edit",
+        "target": {
+          "t_busy": [
+            -4,
+            1
+          ],
+          "t_not_ack": [
+            -4,
+            -2
+          ],
+          "busy_not_ack_t": [
+            -1,
+            2,
+            4
+          ],
+          "t_next": [
+            -4,
+            5
+          ],
+          "next_req_t": [
+            -5,
+            3,
+            4
+          ],
+          "request": [
+            3
+          ],
+          "bad": [
+            -5
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "4": false,
+            "1": false,
+            "2": false,
+            "5": false,
+            "3": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/bad",
+        "target": {
+          "t_busy": [
+            -4,
+            1
+          ],
+          "t_not_ack": [
+            -4,
+            -2
+          ],
+          "busy_not_ack_t": [
+            -1,
+            2,
+            4
+          ],
+          "req_next": [
+            -3,
+            5
+          ],
+          "t_next": [
+            -4,
+            5
+          ],
+          "next_req_t": [
+            -5,
+            3,
+            4
+          ],
+          "request": [
+            3
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "4": false,
+            "1": false,
+            "2": false,
+            "3": true,
+            "5": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/busy_not_ack_t",
+        "target": {
+          "t_busy": [
+            -4,
+            1
+          ],
+          "t_not_ack": [
+            -4,
+            -2
+          ],
+          "req_next": [
+            -3,
+            5
+          ],
+          "t_next": [
+            -4,
+            5
+          ],
+          "next_req_t": [
+            -5,
+            3,
+            4
+          ],
+          "request": [
+            3
+          ],
+          "bad": [
+            -5
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "req_next",
+                "clause": [
+                  -3,
+                  5
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -5
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 5,
+                "clause": [
+                  -3
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  3
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 3,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_3) v_5) (or v_5 (not v_3))))))\n(let ((a!2 (mp (asserted (or (not v_3) v_5)) a!1 (or v_5 (not v_3)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_5)) (not v_3))\n                   (asserted v_3)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -5
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "req_next",
+              "clause": [
+                -3,
+                5
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                3
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 5,
+              "clause": [
+                -3
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 3,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/next_req_t",
+        "target": {
+          "t_busy": [
+            -4,
+            1
+          ],
+          "t_not_ack": [
+            -4,
+            -2
+          ],
+          "busy_not_ack_t": [
+            -1,
+            2,
+            4
+          ],
+          "req_next": [
+            -3,
+            5
+          ],
+          "t_next": [
+            -4,
+            5
+          ],
+          "request": [
+            3
+          ],
+          "bad": [
+            -5
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "req_next",
+                "clause": [
+                  -3,
+                  5
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -5
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 5,
+                "clause": [
+                  -3
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  3
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 3,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_3) v_5) (or v_5 (not v_3))))))\n(let ((a!2 (mp (asserted (or (not v_3) v_5)) a!1 (or v_5 (not v_3)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_5)) (not v_3))\n                   (asserted v_3)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -5
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "req_next",
+              "clause": [
+                -3,
+                5
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                3
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 5,
+              "clause": [
+                -3
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 3,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/req_next",
+        "target": {
+          "t_busy": [
+            -4,
+            1
+          ],
+          "t_not_ack": [
+            -4,
+            -2
+          ],
+          "busy_not_ack_t": [
+            -1,
+            2,
+            4
+          ],
+          "t_next": [
+            -4,
+            5
+          ],
+          "next_req_t": [
+            -5,
+            3,
+            4
+          ],
+          "request": [
+            3
+          ],
+          "bad": [
+            -5
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "4": false,
+            "1": false,
+            "2": false,
+            "5": false,
+            "3": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/request",
+        "target": {
+          "t_busy": [
+            -4,
+            1
+          ],
+          "t_not_ack": [
+            -4,
+            -2
+          ],
+          "busy_not_ack_t": [
+            -1,
+            2,
+            4
+          ],
+          "req_next": [
+            -3,
+            5
+          ],
+          "t_next": [
+            -4,
+            5
+          ],
+          "next_req_t": [
+            -5,
+            3,
+            4
+          ],
+          "bad": [
+            -5
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "4": false,
+            "1": false,
+            "2": false,
+            "3": false,
+            "5": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/t_busy",
+        "target": {
+          "t_not_ack": [
+            -4,
+            -2
+          ],
+          "busy_not_ack_t": [
+            -1,
+            2,
+            4
+          ],
+          "req_next": [
+            -3,
+            5
+          ],
+          "t_next": [
+            -4,
+            5
+          ],
+          "next_req_t": [
+            -5,
+            3,
+            4
+          ],
+          "request": [
+            3
+          ],
+          "bad": [
+            -5
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "req_next",
+                "clause": [
+                  -3,
+                  5
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -5
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 5,
+                "clause": [
+                  -3
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  3
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 3,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_3) v_5) (or v_5 (not v_3))))))\n(let ((a!2 (mp (asserted (or (not v_3) v_5)) a!1 (or v_5 (not v_3)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_5)) (not v_3))\n                   (asserted v_3)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -5
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "req_next",
+              "clause": [
+                -3,
+                5
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                3
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 5,
+              "clause": [
+                -3
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 3,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/t_next",
+        "target": {
+          "t_busy": [
+            -4,
+            1
+          ],
+          "t_not_ack": [
+            -4,
+            -2
+          ],
+          "busy_not_ack_t": [
+            -1,
+            2,
+            4
+          ],
+          "req_next": [
+            -3,
+            5
+          ],
+          "next_req_t": [
+            -5,
+            3,
+            4
+          ],
+          "request": [
+            3
+          ],
+          "bad": [
+            -5
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "req_next",
+                "clause": [
+                  -3,
+                  5
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -5
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 5,
+                "clause": [
+                  -3
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  3
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 3,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_3) v_5) (or v_5 (not v_3))))))\n(let ((a!2 (mp (asserted (or (not v_3) v_5)) a!1 (or v_5 (not v_3)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_5)) (not v_3))\n                   (asserted v_3)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -5
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "req_next",
+              "clause": [
+                -3,
+                5
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                3
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 5,
+              "clause": [
+                -3
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 3,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/t_not_ack",
+        "target": {
+          "t_busy": [
+            -4,
+            1
+          ],
+          "busy_not_ack_t": [
+            -1,
+            2,
+            4
+          ],
+          "req_next": [
+            -3,
+            5
+          ],
+          "t_next": [
+            -4,
+            5
+          ],
+          "next_req_t": [
+            -5,
+            3,
+            4
+          ],
+          "request": [
+            3
+          ],
+          "bad": [
+            -5
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "req_next",
+                "clause": [
+                  -3,
+                  5
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -5
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 5,
+                "clause": [
+                  -3
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  3
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 3,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_3) v_5) (or v_5 (not v_3))))))\n(let ((a!2 (mp (asserted (or (not v_3) v_5)) a!1 (or v_5 (not v_3)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_5)) (not v_3))\n                   (asserted v_3)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -5
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "req_next",
+              "clause": [
+                -3,
+                5
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                3
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 5,
+              "clause": [
+                -3
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 3,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      }
+    ]
+  },
+  {
+    "case": "survival-contract-cases/critical-delete-regression",
+    "source": {
+      "request": [
+        1
+      ],
+      "rule": [
+        -1,
+        2
+      ],
+      "bad": [
+        -2
+      ]
+    },
+    "native_version": "4.13.4",
+    "source_dimacs": "p cnf 2 3\n-2 0\n1 0\n-1 2 0\n",
+    "source_packets": [
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "rule",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "rule",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      }
+    ],
+    "native_proofs": [
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))",
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))"
+    ],
+    "queries": [
+      {
+        "query": "provided-edit",
+        "target": {
+          "request": [
+            1
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/bad",
+        "target": {
+          "request": [
+            1
+          ],
+          "rule": [
+            -1,
+            2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/request",
+        "target": {
+          "rule": [
+            -1,
+            2
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": false,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/rule",
+        "target": {
+          "request": [
+            1
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      }
+    ]
+  },
+  {
+    "case": "survival-contract-cases/irrelevant-addition",
+    "source": {
+      "request": [
+        1
+      ],
+      "rule": [
+        -1,
+        2
+      ],
+      "bad": [
+        -2
+      ]
+    },
+    "native_version": "4.13.4",
+    "source_dimacs": "p cnf 2 3\n-2 0\n1 0\n-1 2 0\n",
+    "source_packets": [
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "rule",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "rule",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      }
+    ],
+    "native_proofs": [
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))",
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))"
+    ],
+    "queries": [
+      {
+        "query": "provided-edit",
+        "target": {
+          "request": [
+            1
+          ],
+          "rule": [
+            -1,
+            2
+          ],
+          "bad": [
+            -2
+          ],
+          "mode": [
+            3
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "rule",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 2,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n2",
+                "right": "n3",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "rule",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n0",
+              "pivot": 2,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/bad",
+        "target": {
+          "request": [
+            1
+          ],
+          "rule": [
+            -1,
+            2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/request",
+        "target": {
+          "rule": [
+            -1,
+            2
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": false,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/rule",
+        "target": {
+          "request": [
+            1
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      }
+    ]
+  },
+  {
+    "case": "survival-contract-cases/same-id-replacement",
+    "source": {
+      "request": [
+        1
+      ],
+      "rule": [
+        -1,
+        2
+      ],
+      "bad": [
+        -2
+      ]
+    },
+    "native_version": "4.13.4",
+    "source_dimacs": "p cnf 2 3\n-2 0\n1 0\n-1 2 0\n",
+    "source_packets": [
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "rule",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "rule",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      }
+    ],
+    "native_proofs": [
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))",
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))"
+    ],
+    "queries": [
+      {
+        "query": "provided-edit",
+        "target": {
+          "request": [
+            1
+          ],
+          "rule": [
+            -2,
+            -1
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/bad",
+        "target": {
+          "request": [
+            1
+          ],
+          "rule": [
+            -1,
+            2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/request",
+        "target": {
+          "rule": [
+            -1,
+            2
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": false,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/rule",
+        "target": {
+          "request": [
+            1
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      }
+    ]
+  },
+  {
+    "case": "survival-contract-cases/duplicate-rule-delete",
+    "source": {
+      "request": [
+        1
+      ],
+      "rule_a": [
+        -1,
+        2
+      ],
+      "rule_b": [
+        -1,
+        2
+      ],
+      "bad": [
+        -2
+      ]
+    },
+    "native_version": "4.13.4",
+    "source_dimacs": "p cnf 2 4\n-2 0\n1 0\n-1 2 0\n-1 2 0\n",
+    "source_packets": [
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "rule_a",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "rule_a",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      }
+    ],
+    "native_proofs": [
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))",
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))"
+    ],
+    "queries": [
+      {
+        "query": "provided-edit",
+        "target": {
+          "request": [
+            1
+          ],
+          "rule_b": [
+            -1,
+            2
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "rule_b",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 2,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n2",
+                "right": "n3",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "rule_b",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n0",
+              "pivot": 2,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/bad",
+        "target": {
+          "request": [
+            1
+          ],
+          "rule_a": [
+            -1,
+            2
+          ],
+          "rule_b": [
+            -1,
+            2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/request",
+        "target": {
+          "rule_a": [
+            -1,
+            2
+          ],
+          "rule_b": [
+            -1,
+            2
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": false,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/rule_a",
+        "target": {
+          "request": [
+            1
+          ],
+          "rule_b": [
+            -1,
+            2
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "rule_b",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 2,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n2",
+                "right": "n3",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "rule_b",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n0",
+              "pivot": 2,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/rule_b",
+        "target": {
+          "request": [
+            1
+          ],
+          "rule_a": [
+            -1,
+            2
+          ],
+          "bad": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "rule_a",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 2,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n2",
+                "right": "n3",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution a!2 (asserted (not v_2)) (asserted v_1) false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "rule_a",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n0",
+              "pivot": 2,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      }
+    ]
+  },
+  {
+    "case": "survival-contract-cases/dual-path-bundle",
+    "source": {
+      "request": [
+        1
+      ],
+      "path_a": [
+        -1,
+        2
+      ],
+      "bad_a": [
+        -2
+      ],
+      "path_b": [
+        -1,
+        3
+      ],
+      "bad_b": [
+        -3
+      ]
+    },
+    "native_version": "4.13.4",
+    "source_dimacs": "p cnf 3 5\n-2 0\n-3 0\n-1 2 0\n-1 3 0\n1 0\n",
+    "source_packets": [
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "path_a",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad_a",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n3",
+            "right": "n2",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "path_a",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad_a",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n3",
+            "right": "n2",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "path_b",
+            "clause": [
+              -1,
+              3
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad_b",
+            "clause": [
+              -3
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 3,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "axiom",
+            "source": "request",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n3",
+            "right": "n2",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      }
+    ],
+    "native_proofs": [
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_2)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_2)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+      "(let ((a!1 (rewrite (= (or (not v_1) v_3) (or v_3 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_3)) a!1 (or v_3 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_3)) (not v_1))\n                   (asserted v_1)\n                   false)))"
+    ],
+    "queries": [
+      {
+        "query": "provided-edit",
+        "target": {
+          "request": [
+            1
+          ],
+          "path_b": [
+            -1,
+            3
+          ],
+          "bad_b": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "path_b",
+                "clause": [
+                  -1,
+                  3
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad_b",
+                "clause": [
+                  -3
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 3,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_3) (or v_3 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_3)) a!1 (or v_3 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_3)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad_b",
+              "clause": [
+                -3
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "path_b",
+              "clause": [
+                -1,
+                3
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 3,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/bad_a",
+        "target": {
+          "request": [
+            1
+          ],
+          "path_a": [
+            -1,
+            2
+          ],
+          "path_b": [
+            -1,
+            3
+          ],
+          "bad_b": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "path_b",
+                "clause": [
+                  -1,
+                  3
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad_b",
+                "clause": [
+                  -3
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 3,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_3) (or v_3 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_3)) a!1 (or v_3 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_3)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad_b",
+              "clause": [
+                -3
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "path_b",
+              "clause": [
+                -1,
+                3
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 3,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/bad_b",
+        "target": {
+          "request": [
+            1
+          ],
+          "path_a": [
+            -1,
+            2
+          ],
+          "bad_a": [
+            -2
+          ],
+          "path_b": [
+            -1,
+            3
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "path_a",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad_a",
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 2,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_2)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad_a",
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "path_a",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 2,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/path_a",
+        "target": {
+          "request": [
+            1
+          ],
+          "bad_a": [
+            -2
+          ],
+          "path_b": [
+            -1,
+            3
+          ],
+          "bad_b": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "path_b",
+                "clause": [
+                  -1,
+                  3
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad_b",
+                "clause": [
+                  -3
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 3,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_3) (or v_3 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_3)) a!1 (or v_3 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_3)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad_b",
+              "clause": [
+                -3
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "path_b",
+              "clause": [
+                -1,
+                3
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 3,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/path_b",
+        "target": {
+          "request": [
+            1
+          ],
+          "path_a": [
+            -1,
+            2
+          ],
+          "bad_a": [
+            -2
+          ],
+          "bad_b": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "path_a",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad_a",
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 2,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "request",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_2)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad_a",
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "path_a",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "request",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 2,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/request",
+        "target": {
+          "path_a": [
+            -1,
+            2
+          ],
+          "bad_a": [
+            -2
+          ],
+          "path_b": [
+            -1,
+            3
+          ],
+          "bad_b": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": false,
+            "2": false,
+            "3": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      }
+    ]
+  },
+  {
+    "case": "survival-contract-cases/addition-reestablishes-conflict",
+    "source": {
+      "positive": [
+        1
+      ],
+      "old_negative": [
+        -1
+      ]
+    },
+    "native_version": "4.13.4",
+    "source_dimacs": "p cnf 1 2\n-1 0\n1 0\n",
+    "source_packets": [
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "old_negative",
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "positive",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "resolve",
+            "left": "n1",
+            "right": "n0",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n2"
+      },
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "old_negative",
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "positive",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "resolve",
+            "left": "n1",
+            "right": "n0",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n2"
+      }
+    ],
+    "native_proofs": [
+      "(unit-resolution (asserted (not v_1)) (asserted v_1) false)",
+      "(unit-resolution (asserted (not v_1)) (asserted v_1) false)"
+    ],
+    "queries": [
+      {
+        "query": "provided-edit",
+        "target": {
+          "positive": [
+            1
+          ],
+          "new_negative": [
+            -1
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "new_negative",
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "positive",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n1",
+                "right": "n0",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n2"
+          },
+          "native_proof": "(unit-resolution (asserted (not v_1)) (asserted v_1) false)",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/old_negative",
+        "target": {
+          "positive": [
+            1
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/positive",
+        "target": {
+          "old_negative": [
+            -1
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      }
+    ]
+  },
+  {
+    "case": "survival-contract-cases/multi-stage-duplicate",
+    "source": {
+      "start": [
+        1
+      ],
+      "first_a": [
+        -1,
+        2
+      ],
+      "first_b": [
+        -1,
+        2
+      ],
+      "second": [
+        -2,
+        3
+      ],
+      "bad": [
+        -3
+      ]
+    },
+    "native_version": "4.13.4",
+    "source_dimacs": "p cnf 3 5\n-3 0\n-1 2 0\n-1 2 0\n-2 3 0\n1 0\n",
+    "source_packets": [
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "first_a",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "start",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "second",
+            "clause": [
+              -2,
+              3
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -3
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 3,
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n5",
+            "kind": "resolve",
+            "left": "n1",
+            "right": "n0",
+            "pivot": 1,
+            "clause": [
+              2
+            ]
+          },
+          {
+            "id": "n6",
+            "kind": "resolve",
+            "left": "n5",
+            "right": "n4",
+            "pivot": 2,
+            "clause": []
+          }
+        ],
+        "root": "n6"
+      },
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "first_a",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "start",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "axiom",
+            "source": "second",
+            "clause": [
+              -2,
+              3
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "axiom",
+            "source": "bad",
+            "clause": [
+              -3
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n2",
+            "right": "n3",
+            "pivot": 3,
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n5",
+            "kind": "resolve",
+            "left": "n1",
+            "right": "n0",
+            "pivot": 1,
+            "clause": [
+              2
+            ]
+          },
+          {
+            "id": "n6",
+            "kind": "resolve",
+            "left": "n5",
+            "right": "n4",
+            "pivot": 2,
+            "clause": []
+          }
+        ],
+        "root": "n6"
+      }
+    ],
+    "native_proofs": [
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1)))))\n      (a!3 (rewrite (= (or (not v_2) v_3) (or v_3 (not v_2))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1))))\n      (a!4 (mp (asserted (or (not v_2) v_3)) a!3 (or v_3 (not v_2)))))\n  (unit-resolution a!2\n                   (asserted v_1)\n                   (unit-resolution a!4 (asserted (not v_3)) (not v_2))\n                   false)))",
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1)))))\n      (a!3 (rewrite (= (or (not v_2) v_3) (or v_3 (not v_2))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1))))\n      (a!4 (mp (asserted (or (not v_2) v_3)) a!3 (or v_3 (not v_2)))))\n  (unit-resolution a!2\n                   (asserted v_1)\n                   (unit-resolution a!4 (asserted (not v_3)) (not v_2))\n                   false)))"
+    ],
+    "queries": [
+      {
+        "query": "provided-edit",
+        "target": {
+          "start": [
+            1
+          ],
+          "first_b": [
+            -1,
+            2
+          ],
+          "second": [
+            -2,
+            3
+          ],
+          "bad": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "first_b",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "start",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "axiom",
+                "source": "second",
+                "clause": [
+                  -2,
+                  3
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -3
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n2",
+                "right": "n3",
+                "pivot": 3,
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n5",
+                "kind": "resolve",
+                "left": "n1",
+                "right": "n0",
+                "pivot": 1,
+                "clause": [
+                  2
+                ]
+              },
+              {
+                "id": "n6",
+                "kind": "resolve",
+                "left": "n5",
+                "right": "n4",
+                "pivot": 2,
+                "clause": []
+              }
+            ],
+            "root": "n6"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1)))))\n      (a!3 (rewrite (= (or (not v_2) v_3) (or v_3 (not v_2))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1))))\n      (a!4 (mp (asserted (or (not v_2) v_3)) a!3 (or v_3 (not v_2)))))\n  (unit-resolution a!2\n                   (asserted v_1)\n                   (unit-resolution a!4 (asserted (not v_3)) (not v_2))\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -3
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "first_b",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "second",
+              "clause": [
+                -2,
+                3
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "axiom",
+              "source": "start",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n0",
+              "pivot": 3,
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n5",
+              "kind": "resolve",
+              "left": "n3",
+              "right": "n1",
+              "pivot": 1,
+              "clause": [
+                2
+              ]
+            },
+            {
+              "id": "n6",
+              "kind": "resolve",
+              "left": "n5",
+              "right": "n4",
+              "pivot": 2,
+              "clause": []
+            }
+          ],
+          "root": "n6"
+        }
+      },
+      {
+        "query": "delete/bad",
+        "target": {
+          "start": [
+            1
+          ],
+          "first_a": [
+            -1,
+            2
+          ],
+          "first_b": [
+            -1,
+            2
+          ],
+          "second": [
+            -2,
+            3
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true,
+            "3": true
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/first_a",
+        "target": {
+          "start": [
+            1
+          ],
+          "first_b": [
+            -1,
+            2
+          ],
+          "second": [
+            -2,
+            3
+          ],
+          "bad": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "first_b",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "start",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "axiom",
+                "source": "second",
+                "clause": [
+                  -2,
+                  3
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -3
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n2",
+                "right": "n3",
+                "pivot": 3,
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n5",
+                "kind": "resolve",
+                "left": "n1",
+                "right": "n0",
+                "pivot": 1,
+                "clause": [
+                  2
+                ]
+              },
+              {
+                "id": "n6",
+                "kind": "resolve",
+                "left": "n5",
+                "right": "n4",
+                "pivot": 2,
+                "clause": []
+              }
+            ],
+            "root": "n6"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1)))))\n      (a!3 (rewrite (= (or (not v_2) v_3) (or v_3 (not v_2))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1))))\n      (a!4 (mp (asserted (or (not v_2) v_3)) a!3 (or v_3 (not v_2)))))\n  (unit-resolution a!2\n                   (asserted v_1)\n                   (unit-resolution a!4 (asserted (not v_3)) (not v_2))\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -3
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "first_b",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "second",
+              "clause": [
+                -2,
+                3
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "axiom",
+              "source": "start",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n0",
+              "pivot": 3,
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n5",
+              "kind": "resolve",
+              "left": "n3",
+              "right": "n1",
+              "pivot": 1,
+              "clause": [
+                2
+              ]
+            },
+            {
+              "id": "n6",
+              "kind": "resolve",
+              "left": "n5",
+              "right": "n4",
+              "pivot": 2,
+              "clause": []
+            }
+          ],
+          "root": "n6"
+        }
+      },
+      {
+        "query": "delete/first_b",
+        "target": {
+          "start": [
+            1
+          ],
+          "first_a": [
+            -1,
+            2
+          ],
+          "second": [
+            -2,
+            3
+          ],
+          "bad": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "first_a",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "start",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "axiom",
+                "source": "second",
+                "clause": [
+                  -2,
+                  3
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "bad",
+                "clause": [
+                  -3
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n2",
+                "right": "n3",
+                "pivot": 3,
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n5",
+                "kind": "resolve",
+                "left": "n1",
+                "right": "n0",
+                "pivot": 1,
+                "clause": [
+                  2
+                ]
+              },
+              {
+                "id": "n6",
+                "kind": "resolve",
+                "left": "n5",
+                "right": "n4",
+                "pivot": 2,
+                "clause": []
+              }
+            ],
+            "root": "n6"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1)))))\n      (a!3 (rewrite (= (or (not v_2) v_3) (or v_3 (not v_2))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1))))\n      (a!4 (mp (asserted (or (not v_2) v_3)) a!3 (or v_3 (not v_2)))))\n  (unit-resolution a!2\n                   (asserted v_1)\n                   (unit-resolution a!4 (asserted (not v_3)) (not v_2))\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad",
+              "clause": [
+                -3
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "first_a",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "second",
+              "clause": [
+                -2,
+                3
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "axiom",
+              "source": "start",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n0",
+              "pivot": 3,
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n5",
+              "kind": "resolve",
+              "left": "n3",
+              "right": "n1",
+              "pivot": 1,
+              "clause": [
+                2
+              ]
+            },
+            {
+              "id": "n6",
+              "kind": "resolve",
+              "left": "n5",
+              "right": "n4",
+              "pivot": 2,
+              "clause": []
+            }
+          ],
+          "root": "n6"
+        }
+      },
+      {
+        "query": "delete/second",
+        "target": {
+          "start": [
+            1
+          ],
+          "first_a": [
+            -1,
+            2
+          ],
+          "first_b": [
+            -1,
+            2
+          ],
+          "bad": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": true,
+            "3": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/start",
+        "target": {
+          "first_a": [
+            -1,
+            2
+          ],
+          "first_b": [
+            -1,
+            2
+          ],
+          "second": [
+            -2,
+            3
+          ],
+          "bad": [
+            -3
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": false,
+            "2": false,
+            "3": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      }
+    ]
+  },
+  {
+    "case": "survival-contract-cases/composed-alternative-leaves",
+    "source": {
+      "start_a": [
+        1
+      ],
+      "start_b": [
+        1
+      ],
+      "bridge": [
+        -1,
+        2
+      ],
+      "bad_a": [
+        -2
+      ],
+      "bad_b": [
+        -2
+      ]
+    },
+    "native_version": "4.13.4",
+    "source_dimacs": "p cnf 2 5\n-2 0\n-2 0\n-1 2 0\n1 0\n1 0\n",
+    "source_packets": [
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "bridge",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad_a",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "axiom",
+            "source": "start_a",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n3",
+            "right": "n2",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      },
+      {
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "axiom",
+            "source": "bridge",
+            "clause": [
+              -1,
+              2
+            ]
+          },
+          {
+            "id": "n1",
+            "kind": "axiom",
+            "source": "bad_a",
+            "clause": [
+              -2
+            ]
+          },
+          {
+            "id": "n2",
+            "kind": "resolve",
+            "left": "n0",
+            "right": "n1",
+            "pivot": 2,
+            "clause": [
+              -1
+            ]
+          },
+          {
+            "id": "n3",
+            "kind": "axiom",
+            "source": "start_a",
+            "clause": [
+              1
+            ]
+          },
+          {
+            "id": "n4",
+            "kind": "resolve",
+            "left": "n3",
+            "right": "n2",
+            "pivot": 1,
+            "clause": []
+          }
+        ],
+        "root": "n4"
+      }
+    ],
+    "native_proofs": [
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_2)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+      "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_2)) (not v_1))\n                   (asserted v_1)\n                   false)))"
+    ],
+    "queries": [
+      {
+        "query": "provided-edit",
+        "target": {
+          "start_b": [
+            1
+          ],
+          "bridge": [
+            -1,
+            2
+          ],
+          "bad_b": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "bridge",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad_b",
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 2,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "start_b",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_2)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad_b",
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "bridge",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "start_b",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 2,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/bad_a",
+        "target": {
+          "start_a": [
+            1
+          ],
+          "start_b": [
+            1
+          ],
+          "bridge": [
+            -1,
+            2
+          ],
+          "bad_b": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "bridge",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad_b",
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 2,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "start_a",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_2)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad_b",
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "bridge",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "start_a",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 2,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/bad_b",
+        "target": {
+          "start_a": [
+            1
+          ],
+          "start_b": [
+            1
+          ],
+          "bridge": [
+            -1,
+            2
+          ],
+          "bad_a": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "bridge",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad_a",
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 2,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "start_a",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_2)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad_a",
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "bridge",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "start_a",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 2,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/bridge",
+        "target": {
+          "start_a": [
+            1
+          ],
+          "start_b": [
+            1
+          ],
+          "bad_a": [
+            -2
+          ],
+          "bad_b": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "sat",
+          "model": {
+            "1": true,
+            "2": false
+          },
+          "native_version": "4.13.4"
+        },
+        "trace_replay": null
+      },
+      {
+        "query": "delete/start_a",
+        "target": {
+          "start_b": [
+            1
+          ],
+          "bridge": [
+            -1,
+            2
+          ],
+          "bad_a": [
+            -2
+          ],
+          "bad_b": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "bridge",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad_a",
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 2,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "start_b",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_2)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad_a",
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "bridge",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "start_b",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 2,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      },
+      {
+        "query": "delete/start_b",
+        "target": {
+          "start_a": [
+            1
+          ],
+          "bridge": [
+            -1,
+            2
+          ],
+          "bad_a": [
+            -2
+          ],
+          "bad_b": [
+            -2
+          ]
+        },
+        "native": {
+          "status": "unsat",
+          "certificate": {
+            "nodes": [
+              {
+                "id": "n0",
+                "kind": "axiom",
+                "source": "bridge",
+                "clause": [
+                  -1,
+                  2
+                ]
+              },
+              {
+                "id": "n1",
+                "kind": "axiom",
+                "source": "bad_a",
+                "clause": [
+                  -2
+                ]
+              },
+              {
+                "id": "n2",
+                "kind": "resolve",
+                "left": "n0",
+                "right": "n1",
+                "pivot": 2,
+                "clause": [
+                  -1
+                ]
+              },
+              {
+                "id": "n3",
+                "kind": "axiom",
+                "source": "start_a",
+                "clause": [
+                  1
+                ]
+              },
+              {
+                "id": "n4",
+                "kind": "resolve",
+                "left": "n3",
+                "right": "n2",
+                "pivot": 1,
+                "clause": []
+              }
+            ],
+            "root": "n4"
+          },
+          "native_proof": "(let ((a!1 (rewrite (= (or (not v_1) v_2) (or v_2 (not v_1))))))\n(let ((a!2 (mp (asserted (or (not v_1) v_2)) a!1 (or v_2 (not v_1)))))\n  (unit-resolution (unit-resolution a!2 (asserted (not v_2)) (not v_1))\n                   (asserted v_1)\n                   false)))",
+          "native_version": "4.13.4"
+        },
+        "trace_replay": {
+          "nodes": [
+            {
+              "id": "n0",
+              "kind": "axiom",
+              "source": "bad_a",
+              "clause": [
+                -2
+              ]
+            },
+            {
+              "id": "n1",
+              "kind": "axiom",
+              "source": "bridge",
+              "clause": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "n2",
+              "kind": "axiom",
+              "source": "start_a",
+              "clause": [
+                1
+              ]
+            },
+            {
+              "id": "n3",
+              "kind": "resolve",
+              "left": "n1",
+              "right": "n0",
+              "pivot": 2,
+              "clause": [
+                -1
+              ]
+            },
+            {
+              "id": "n4",
+              "kind": "resolve",
+              "left": "n2",
+              "right": "n3",
+              "pivot": 1,
+              "clause": []
+            }
+          ],
+          "root": "n4"
+        }
+      }
+    ]
+  }
+]

@@ -34,6 +34,14 @@ jobs:
           timeout --signal=TERM --kill-after=10s 480s \
             python -B reproduce.py --out scientific-output \
             > scientific-output.log 2>&1
+      - name: Install the optional native Boolean solver
+        run: python -m pip install -r requirements-native.txt
+      - name: Check the native proof bridge and provided contract edits
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 60s python -B -m unittest discover -s tests -p 'test_native_bridge.py' -v
+          timeout 120s python -B src/native_contract_probe.py --out native-output --check-retained
       - name: Upload raw outputs even after a failed or timed-out check
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -42,5 +50,6 @@ jobs:
           path: |
             scientific-output.log
             scientific-output/
+            native-output/
           if-no-files-found: error
           retention-days: 14

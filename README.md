@@ -57,6 +57,32 @@ checks. The heap preserves the deterministic order; it adds no runtime claim.
 The recorded 91-test Linux results are retained campaign evidence, not a fresh
 execution of the expanded suite.
 
+## Native Boolean proof bridge
+
+The optional bridge executes the existing Boolean inputs through Z3 and checks
+their proof/model outputs. Install `requirements-native.txt`, then run:
+
+```sh
+python3 -B -m unittest discover -s tests -p 'test_native_bridge.py' -v
+python3 -B src/native_contract_probe.py --out /tmp/contractresolve-native --check-retained
+```
+
+The output must be fresh. The 14 input entries have nine distinct source maps;
+their provided edits and all single-clause deletions give 70 queries. The retained
+Z3 4.13.4 run has 26 UNSAT/44 SAT, all matching the truth-table oracle. Every UNSAT
+proof is translated and independently rechecked by the ordinary checker; every
+SAT model is checked. A native-proof trace library accepts and replays 25 queries
+versus 15 for one selected native support, recovering ten alternatives.
+`results/native-bridge/` retains raw native proofs, translated source/target
+packets, checked models, replay packets and the exact input bindings.
+
+The DIMACS bridge binds clause positions to the explicit stable identifier/body
+map. Its proof elaborator accepts source axioms, canonical-clause-preserving
+rewrites and unit resolution; unsupported native proof rules reject. Eight
+regressions cover these interfaces. These are the provided Boolean cases, not an
+RTL translation or additional industrial workloads. The standard-library core
+and its retained reproduction remain independently runnable without Z3.
+
 ## Checked modes
 
 ### Ordinary proof packets

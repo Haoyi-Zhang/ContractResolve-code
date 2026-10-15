@@ -1,0 +1,35 @@
+{
+  "semantic": {
+    "input_cases": 14,
+    "distinct_identifier_body_sources": 9,
+    "queries": 70,
+    "native_unsat": 26,
+    "native_sat": 44,
+    "single_accept": 15,
+    "trace_accept": 25,
+    "recovered_over_single": 10,
+    "trace_positive_replays": 25,
+    "status_or_replay_mismatches": 0,
+    "provided_edit_queries": 14,
+    "additional_single_deletion_queries": 56
+  },
+  "cpu_seconds": 0.421875,
+  "wall_seconds": 0.42382720000023255,
+  "environment": {
+    "python": "3.12.14",
+    "system": "Windows",
+    "release": "11",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+    "logical_cpus": 20,
+    "native_solver": "Z3",
+    "native_version": "4.13.4",
+    "workers": 1
+  },
+  "input_bindings": {
+    "contract-cases.json": "eb1a25f2cfff9546172ba8676ff15dd11b2dccf63e5260cde22646a0d2cc7461",
+    "survival-contract-cases.json": "900f72f276de3026f92815eaa67faa21a79e68eae832debafbc278be3bf76dbe"
+  },
+  "scope": "Provided Boolean/CNF contracts and all their single-clause deletions; native asserted/clause-preserving-rewrite/unit-resolution bridge, exact identifier/body map, truth-table/model checks and ordinary proof replay. Not RTL translation or general Z3 proof-format completeness.",
+  "comparison_to_retained": null
+}
