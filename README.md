@@ -6,7 +6,7 @@ ordinary-resolution checker, generic proof-survival circuits, an exact Horn
 specialization, independent finite oracles, deterministic experiments, raw
 results, and an evidence auditor.
 
-## Reproduce all retained results
+## Reproduce the standard-library campaign
 
 Requirements: Linux and Python 3.10 or newer, with assertions enabled. The full
 runner and measurement drivers use the Unix-only `resource` module and Linux
@@ -38,7 +38,8 @@ Generate without comparing retained results:
 python3 reproduce.py --out fresh-results --no-compare
 ```
 
-Run the test suite alone:
+Run the test suite alone (107 methods; five native-solver tests are skipped
+unless the optional Z3 dependency below is installed):
 
 ```sh
 python3 -m unittest discover -s tests -v
@@ -60,9 +61,11 @@ execution of the expanded suite.
 ## Native Boolean proof bridge
 
 The optional bridge executes the existing Boolean inputs through Z3 and checks
-their proof/model outputs. Install `requirements-native.txt`, then run:
+their proof/model outputs. From the repository root, install the pinned solver
+and run the native checks separately from the standard-library campaign:
 
 ```sh
+python3 -m pip install -r requirements-native.txt
 python3 -B -m unittest discover -s tests -p 'test_native_bridge.py' -v
 python3 -B src/native_contract_probe.py --out /tmp/contractresolve-native --check-retained
 ```
@@ -182,7 +185,7 @@ indices; the fractions are not total-work or runtime speedups.
 
 ## Trust and threat boundary
 
-The current Ubuntu / CPython 3.12.14 reproduction passed 91 tests and all 14
+The retained Ubuntu / CPython 3.12.14 reproduction passed 91 tests and all 14
 commands. All 26 scientific files agreed, excluding only declared timing/RSS
 fields. Elapsed time was 68.263204 seconds, aggregate child CPU 126.870280
 seconds, and Horn-probe peak RSS 674,428 KiB. Current records are retained in
